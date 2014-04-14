@@ -1,0 +1,5 @@
+vhdl work "Clock_divider.vhd"
+vhdl work "RNG.vhd"
+vhdl work "RAM.vhd"
+vhdl work "Decoder.vhd"
+vhdl work "TopLevel.vhd"

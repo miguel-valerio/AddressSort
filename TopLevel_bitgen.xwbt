@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Miguel\Desktop\CR\projectv4\TopLevel.ncd
+OUTFILE=C:\Users\Miguel\Desktop\CR\projectv4\TopLevel.bit
+FAMILY=Artix7
+PART=xc7a100t-3csg324
+WORKINGDIR=C:\Users\Miguel\Desktop\CR\projectv4
+LICENSE=WebPack
+USER_INFO=210859382_0_0_615

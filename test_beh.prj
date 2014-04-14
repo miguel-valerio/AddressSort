@@ -1,0 +1,5 @@
+vhdl work "RNG.vhd"
+vhdl work "RAM.vhd"
+vhdl work "Decoder.vhd"
+vhdl work "TopLevel.vhd"
+vhdl work "test.vhd"

@@ -1,0 +1,1574 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: TopLevel.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "TopLevel.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "TopLevel"
+Output Format                      : NGC
+Target Device                      : xc7a100t-3-csg324
+
+---- Source Options
+Top Module Name                    : TopLevel
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\Clock_divider.vhd" into library work
+Parsing entity <clock_divider>.
+Parsing architecture <Behavioral> of entity <clock_divider>.
+Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\RNG.vhd" into library work
+Parsing entity <RNG>.
+Parsing architecture <Behavioral> of entity <rng>.
+Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\RAM.vhd" into library work
+Parsing entity <RAM>.
+Parsing architecture <Behavioral> of entity <ram>.
+Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\Decoder.vhd" into library work
+Parsing entity <Decoder>.
+Parsing architecture <Behavioral> of entity <decoder>.
+Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\TopLevel.vhd" into library work
+Parsing entity <TopLevel>.
+Parsing architecture <Behavioral> of entity <toplevel>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <TopLevel> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <RNG> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <RAM> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <Decoder> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <clock_divider> (architecture <Behavioral>) with generics from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <TopLevel>.
+    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\TopLevel.vhd".
+        data_width = 10
+        dec_size = 16
+    Found 32-bit register for signal <count>.
+    Found 6-bit register for signal <RADDR>.
+    Found 16-bit register for signal <led>.
+    Found 32-bit adder for signal <count[31]_GND_5_o_add_1_OUT> created at line 73.
+    Found 6-bit adder for signal <RADDR[5]_GND_5_o_add_2_OUT> created at line 74.
+    Found 32-bit comparator lessequal for signal <GND_5_o_count[31]_LessThan_1_o> created at line 71
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  54 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <TopLevel> synthesized.
+
+Synthesizing Unit <RNG>.
+    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\RNG.vhd".
+        data_width = 10
+        ndata = 216
+    Found 10-bit register for signal <rand_temp>.
+    Found 32-bit register for signal <count>.
+    Found 1-bit register for signal <over>.
+    Found 32-bit adder for signal <count[31]_GND_6_o_add_1_OUT> created at line 55.
+    Found 32-bit comparator greater for signal <GND_6_o_count[31]_LessThan_1_o> created at line 50
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  43 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <RNG> synthesized.
+
+Synthesizing Unit <RAM>.
+    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\RAM.vhd".
+        add_width = 10
+    Found 1-bit register for signal <my_ram_ff_0>.
+    Found 1-bit register for signal <my_ram_ff_1>.
+    Found 1-bit register for signal <my_ram_ff_2>.
+    Found 1-bit register for signal <my_ram_ff_3>.
+    Found 1-bit register for signal <my_ram_ff_4>.
+    Found 1-bit register for signal <my_ram_ff_5>.
+    Found 1-bit register for signal <my_ram_ff_6>.
+    Found 1-bit register for signal <my_ram_ff_7>.
+    Found 1-bit register for signal <my_ram_ff_8>.
+    Found 1-bit register for signal <my_ram_ff_9>.
+    Found 1-bit register for signal <my_ram_ff_10>.
+    Found 1-bit register for signal <my_ram_ff_11>.
+    Found 1-bit register for signal <my_ram_ff_12>.
+    Found 1-bit register for signal <my_ram_ff_13>.
+    Found 1-bit register for signal <my_ram_ff_14>.
+    Found 1-bit register for signal <my_ram_ff_15>.
+    Found 1-bit register for signal <my_ram_ff_16>.
+    Found 1-bit register for signal <my_ram_ff_17>.
+    Found 1-bit register for signal <my_ram_ff_18>.
+    Found 1-bit register for signal <my_ram_ff_19>.
+    Found 1-bit register for signal <my_ram_ff_20>.
+    Found 1-bit register for signal <my_ram_ff_21>.
+    Found 1-bit register for signal <my_ram_ff_22>.
+    Found 1-bit register for signal <my_ram_ff_23>.
+    Found 1-bit register for signal <my_ram_ff_24>.
+    Found 1-bit register for signal <my_ram_ff_25>.
+    Found 1-bit register for signal <my_ram_ff_26>.
+    Found 1-bit register for signal <my_ram_ff_27>.
+    Found 1-bit register for signal <my_ram_ff_28>.
+    Found 1-bit register for signal <my_ram_ff_29>.
+    Found 1-bit register for signal <my_ram_ff_30>.
+    Found 1-bit register for signal <my_ram_ff_31>.
+    Found 1-bit register for signal <my_ram_ff_32>.
+    Found 1-bit register for signal <my_ram_ff_33>.
+    Found 1-bit register for signal <my_ram_ff_34>.
+    Found 1-bit register for signal <my_ram_ff_35>.
+    Found 1-bit register for signal <my_ram_ff_36>.
+    Found 1-bit register for signal <my_ram_ff_37>.
+    Found 1-bit register for signal <my_ram_ff_38>.
+    Found 1-bit register for signal <my_ram_ff_39>.
+    Found 1-bit register for signal <my_ram_ff_40>.
+    Found 1-bit register for signal <my_ram_ff_41>.
+    Found 1-bit register for signal <my_ram_ff_42>.
+    Found 1-bit register for signal <my_ram_ff_43>.
+    Found 1-bit register for signal <my_ram_ff_44>.
+    Found 1-bit register for signal <my_ram_ff_45>.
+    Found 1-bit register for signal <my_ram_ff_46>.
+    Found 1-bit register for signal <my_ram_ff_47>.
+    Found 1-bit register for signal <my_ram_ff_48>.
+    Found 1-bit register for signal <my_ram_ff_49>.
+    Found 1-bit register for signal <my_ram_ff_50>.
+    Found 1-bit register for signal <my_ram_ff_51>.
+    Found 1-bit register for signal <my_ram_ff_52>.
+    Found 1-bit register for signal <my_ram_ff_53>.
+    Found 1-bit register for signal <my_ram_ff_54>.
+    Found 1-bit register for signal <my_ram_ff_55>.
+    Found 1-bit register for signal <my_ram_ff_56>.
+    Found 1-bit register for signal <my_ram_ff_57>.
+    Found 1-bit register for signal <my_ram_ff_58>.
+    Found 1-bit register for signal <my_ram_ff_59>.
+    Found 1-bit register for signal <my_ram_ff_60>.
+    Found 1-bit register for signal <my_ram_ff_61>.
+    Found 1-bit register for signal <my_ram_ff_62>.
+    Found 1-bit register for signal <my_ram_ff_63>.
+    Found 1-bit register for signal <my_ram_ff_64>.
+    Found 1-bit register for signal <my_ram_ff_65>.
+    Found 1-bit register for signal <my_ram_ff_66>.
+    Found 1-bit register for signal <my_ram_ff_67>.
+    Found 1-bit register for signal <my_ram_ff_68>.
+    Found 1-bit register for signal <my_ram_ff_69>.
+    Found 1-bit register for signal <my_ram_ff_70>.
+    Found 1-bit register for signal <my_ram_ff_71>.
+    Found 1-bit register for signal <my_ram_ff_72>.
+    Found 1-bit register for signal <my_ram_ff_73>.
+    Found 1-bit register for signal <my_ram_ff_74>.
+    Found 1-bit register for signal <my_ram_ff_75>.
+    Found 1-bit register for signal <my_ram_ff_76>.
+    Found 1-bit register for signal <my_ram_ff_77>.
+    Found 1-bit register for signal <my_ram_ff_78>.
+    Found 1-bit register for signal <my_ram_ff_79>.
+    Found 1-bit register for signal <my_ram_ff_80>.
+    Found 1-bit register for signal <my_ram_ff_81>.
+    Found 1-bit register for signal <my_ram_ff_82>.
+    Found 1-bit register for signal <my_ram_ff_83>.
+    Found 1-bit register for signal <my_ram_ff_84>.
+    Found 1-bit register for signal <my_ram_ff_85>.
+    Found 1-bit register for signal <my_ram_ff_86>.
+    Found 1-bit register for signal <my_ram_ff_87>.
+    Found 1-bit register for signal <my_ram_ff_88>.
+    Found 1-bit register for signal <my_ram_ff_89>.
+    Found 1-bit register for signal <my_ram_ff_90>.
+    Found 1-bit register for signal <my_ram_ff_91>.
+    Found 1-bit register for signal <my_ram_ff_92>.
+    Found 1-bit register for signal <my_ram_ff_93>.
+    Found 1-bit register for signal <my_ram_ff_94>.
+    Found 1-bit register for signal <my_ram_ff_95>.
+    Found 1-bit register for signal <my_ram_ff_96>.
+    Found 1-bit register for signal <my_ram_ff_97>.
+    Found 1-bit register for signal <my_ram_ff_98>.
+    Found 1-bit register for signal <my_ram_ff_99>.
+    Found 1-bit register for signal <my_ram_ff_100>.
+    Found 1-bit register for signal <my_ram_ff_101>.
+    Found 1-bit register for signal <my_ram_ff_102>.
+    Found 1-bit register for signal <my_ram_ff_103>.
+    Found 1-bit register for signal <my_ram_ff_104>.
+    Found 1-bit register for signal <my_ram_ff_105>.
+    Found 1-bit register for signal <my_ram_ff_106>.
+    Found 1-bit register for signal <my_ram_ff_107>.
+    Found 1-bit register for signal <my_ram_ff_108>.
+    Found 1-bit register for signal <my_ram_ff_109>.
+    Found 1-bit register for signal <my_ram_ff_110>.
+    Found 1-bit register for signal <my_ram_ff_111>.
+    Found 1-bit register for signal <my_ram_ff_112>.
+    Found 1-bit register for signal <my_ram_ff_113>.
+    Found 1-bit register for signal <my_ram_ff_114>.
+    Found 1-bit register for signal <my_ram_ff_115>.
+    Found 1-bit register for signal <my_ram_ff_116>.
+    Found 1-bit register for signal <my_ram_ff_117>.
+    Found 1-bit register for signal <my_ram_ff_118>.
+    Found 1-bit register for signal <my_ram_ff_119>.
+    Found 1-bit register for signal <my_ram_ff_120>.
+    Found 1-bit register for signal <my_ram_ff_121>.
+    Found 1-bit register for signal <my_ram_ff_122>.
+    Found 1-bit register for signal <my_ram_ff_123>.
+    Found 1-bit register for signal <my_ram_ff_124>.
+    Found 1-bit register for signal <my_ram_ff_125>.
+    Found 1-bit register for signal <my_ram_ff_126>.
+    Found 1-bit register for signal <my_ram_ff_127>.
+    Found 1-bit register for signal <my_ram_ff_128>.
+    Found 1-bit register for signal <my_ram_ff_129>.
+    Found 1-bit register for signal <my_ram_ff_130>.
+    Found 1-bit register for signal <my_ram_ff_131>.
+    Found 1-bit register for signal <my_ram_ff_132>.
+    Found 1-bit register for signal <my_ram_ff_133>.
+    Found 1-bit register for signal <my_ram_ff_134>.
+    Found 1-bit register for signal <my_ram_ff_135>.
+    Found 1-bit register for signal <my_ram_ff_136>.
+    Found 1-bit register for signal <my_ram_ff_137>.
+    Found 1-bit register for signal <my_ram_ff_138>.
+    Found 1-bit register for signal <my_ram_ff_139>.
+    Found 1-bit register for signal <my_ram_ff_140>.
+    Found 1-bit register for signal <my_ram_ff_141>.
+    Found 1-bit register for signal <my_ram_ff_142>.
+    Found 1-bit register for signal <my_ram_ff_143>.
+    Found 1-bit register for signal <my_ram_ff_144>.
+    Found 1-bit register for signal <my_ram_ff_145>.
+    Found 1-bit register for signal <my_ram_ff_146>.
+    Found 1-bit register for signal <my_ram_ff_147>.
+    Found 1-bit register for signal <my_ram_ff_148>.
+    Found 1-bit register for signal <my_ram_ff_149>.
+    Found 1-bit register for signal <my_ram_ff_150>.
+    Found 1-bit register for signal <my_ram_ff_151>.
+    Found 1-bit register for signal <my_ram_ff_152>.
+    Found 1-bit register for signal <my_ram_ff_153>.
+    Found 1-bit register for signal <my_ram_ff_154>.
+    Found 1-bit register for signal <my_ram_ff_155>.
+    Found 1-bit register for signal <my_ram_ff_156>.
+    Found 1-bit register for signal <my_ram_ff_157>.
+    Found 1-bit register for signal <my_ram_ff_158>.
+    Found 1-bit register for signal <my_ram_ff_159>.
+    Found 1-bit register for signal <my_ram_ff_160>.
+    Found 1-bit register for signal <my_ram_ff_161>.
+    Found 1-bit register for signal <my_ram_ff_162>.
+    Found 1-bit register for signal <my_ram_ff_163>.
+    Found 1-bit register for signal <my_ram_ff_164>.
+    Found 1-bit register for signal <my_ram_ff_165>.
+    Found 1-bit register for signal <my_ram_ff_166>.
+    Found 1-bit register for signal <my_ram_ff_167>.
+    Found 1-bit register for signal <my_ram_ff_168>.
+    Found 1-bit register for signal <my_ram_ff_169>.
+    Found 1-bit register for signal <my_ram_ff_170>.
+    Found 1-bit register for signal <my_ram_ff_171>.
+    Found 1-bit register for signal <my_ram_ff_172>.
+    Found 1-bit register for signal <my_ram_ff_173>.
+    Found 1-bit register for signal <my_ram_ff_174>.
+    Found 1-bit register for signal <my_ram_ff_175>.
+    Found 1-bit register for signal <my_ram_ff_176>.
+    Found 1-bit register for signal <my_ram_ff_177>.
+    Found 1-bit register for signal <my_ram_ff_178>.
+    Found 1-bit register for signal <my_ram_ff_179>.
+    Found 1-bit register for signal <my_ram_ff_180>.
+    Found 1-bit register for signal <my_ram_ff_181>.
+    Found 1-bit register for signal <my_ram_ff_182>.
+    Found 1-bit register for signal <my_ram_ff_183>.
+    Found 1-bit register for signal <my_ram_ff_184>.
+    Found 1-bit register for signal <my_ram_ff_185>.
+    Found 1-bit register for signal <my_ram_ff_186>.
+    Found 1-bit register for signal <my_ram_ff_187>.
+    Found 1-bit register for signal <my_ram_ff_188>.
+    Found 1-bit register for signal <my_ram_ff_189>.
+    Found 1-bit register for signal <my_ram_ff_190>.
+    Found 1-bit register for signal <my_ram_ff_191>.
+    Found 1-bit register for signal <my_ram_ff_192>.
+    Found 1-bit register for signal <my_ram_ff_193>.
+    Found 1-bit register for signal <my_ram_ff_194>.
+    Found 1-bit register for signal <my_ram_ff_195>.
+    Found 1-bit register for signal <my_ram_ff_196>.
+    Found 1-bit register for signal <my_ram_ff_197>.
+    Found 1-bit register for signal <my_ram_ff_198>.
+    Found 1-bit register for signal <my_ram_ff_199>.
+    Found 1-bit register for signal <my_ram_ff_200>.
+    Found 1-bit register for signal <my_ram_ff_201>.
+    Found 1-bit register for signal <my_ram_ff_202>.
+    Found 1-bit register for signal <my_ram_ff_203>.
+    Found 1-bit register for signal <my_ram_ff_204>.
+    Found 1-bit register for signal <my_ram_ff_205>.
+    Found 1-bit register for signal <my_ram_ff_206>.
+    Found 1-bit register for signal <my_ram_ff_207>.
+    Found 1-bit register for signal <my_ram_ff_208>.
+    Found 1-bit register for signal <my_ram_ff_209>.
+    Found 1-bit register for signal <my_ram_ff_210>.
+    Found 1-bit register for signal <my_ram_ff_211>.
+    Found 1-bit register for signal <my_ram_ff_212>.
+    Found 1-bit register for signal <my_ram_ff_213>.
+    Found 1-bit register for signal <my_ram_ff_214>.
+    Found 1-bit register for signal <my_ram_ff_215>.
+    Found 1-bit register for signal <my_ram_ff_216>.
+    Found 1-bit register for signal <my_ram_ff_217>.
+    Found 1-bit register for signal <my_ram_ff_218>.
+    Found 1-bit register for signal <my_ram_ff_219>.
+    Found 1-bit register for signal <my_ram_ff_220>.
+    Found 1-bit register for signal <my_ram_ff_221>.
+    Found 1-bit register for signal <my_ram_ff_222>.
+    Found 1-bit register for signal <my_ram_ff_223>.
+    Found 1-bit register for signal <my_ram_ff_224>.
+    Found 1-bit register for signal <my_ram_ff_225>.
+    Found 1-bit register for signal <my_ram_ff_226>.
+    Found 1-bit register for signal <my_ram_ff_227>.
+    Found 1-bit register for signal <my_ram_ff_228>.
+    Found 1-bit register for signal <my_ram_ff_229>.
+    Found 1-bit register for signal <my_ram_ff_230>.
+    Found 1-bit register for signal <my_ram_ff_231>.
+    Found 1-bit register for signal <my_ram_ff_232>.
+    Found 1-bit register for signal <my_ram_ff_233>.
+    Found 1-bit register for signal <my_ram_ff_234>.
+    Found 1-bit register for signal <my_ram_ff_235>.
+    Found 1-bit register for signal <my_ram_ff_236>.
+    Found 1-bit register for signal <my_ram_ff_237>.
+    Found 1-bit register for signal <my_ram_ff_238>.
+    Found 1-bit register for signal <my_ram_ff_239>.
+    Found 1-bit register for signal <my_ram_ff_240>.
+    Found 1-bit register for signal <my_ram_ff_241>.
+    Found 1-bit register for signal <my_ram_ff_242>.
+    Found 1-bit register for signal <my_ram_ff_243>.
+    Found 1-bit register for signal <my_ram_ff_244>.
+    Found 1-bit register for signal <my_ram_ff_245>.
+    Found 1-bit register for signal <my_ram_ff_246>.
+    Found 1-bit register for signal <my_ram_ff_247>.
+    Found 1-bit register for signal <my_ram_ff_248>.
+    Found 1-bit register for signal <my_ram_ff_249>.
+    Found 1-bit register for signal <my_ram_ff_250>.
+    Found 1-bit register for signal <my_ram_ff_251>.
+    Found 1-bit register for signal <my_ram_ff_252>.
+    Found 1-bit register for signal <my_ram_ff_253>.
+    Found 1-bit register for signal <my_ram_ff_254>.
+    Found 1-bit register for signal <my_ram_ff_255>.
+    Found 1-bit register for signal <my_ram_ff_256>.
+    Found 1-bit register for signal <my_ram_ff_257>.
+    Found 1-bit register for signal <my_ram_ff_258>.
+    Found 1-bit register for signal <my_ram_ff_259>.
+    Found 1-bit register for signal <my_ram_ff_260>.
+    Found 1-bit register for signal <my_ram_ff_261>.
+    Found 1-bit register for signal <my_ram_ff_262>.
+    Found 1-bit register for signal <my_ram_ff_263>.
+    Found 1-bit register for signal <my_ram_ff_264>.
+    Found 1-bit register for signal <my_ram_ff_265>.
+    Found 1-bit register for signal <my_ram_ff_266>.
+    Found 1-bit register for signal <my_ram_ff_267>.
+    Found 1-bit register for signal <my_ram_ff_268>.
+    Found 1-bit register for signal <my_ram_ff_269>.
+    Found 1-bit register for signal <my_ram_ff_270>.
+    Found 1-bit register for signal <my_ram_ff_271>.
+    Found 1-bit register for signal <my_ram_ff_272>.
+    Found 1-bit register for signal <my_ram_ff_273>.
+    Found 1-bit register for signal <my_ram_ff_274>.
+    Found 1-bit register for signal <my_ram_ff_275>.
+    Found 1-bit register for signal <my_ram_ff_276>.
+    Found 1-bit register for signal <my_ram_ff_277>.
+    Found 1-bit register for signal <my_ram_ff_278>.
+    Found 1-bit register for signal <my_ram_ff_279>.
+    Found 1-bit register for signal <my_ram_ff_280>.
+    Found 1-bit register for signal <my_ram_ff_281>.
+    Found 1-bit register for signal <my_ram_ff_282>.
+    Found 1-bit register for signal <my_ram_ff_283>.
+    Found 1-bit register for signal <my_ram_ff_284>.
+    Found 1-bit register for signal <my_ram_ff_285>.
+    Found 1-bit register for signal <my_ram_ff_286>.
+    Found 1-bit register for signal <my_ram_ff_287>.
+    Found 1-bit register for signal <my_ram_ff_288>.
+    Found 1-bit register for signal <my_ram_ff_289>.
+    Found 1-bit register for signal <my_ram_ff_290>.
+    Found 1-bit register for signal <my_ram_ff_291>.
+    Found 1-bit register for signal <my_ram_ff_292>.
+    Found 1-bit register for signal <my_ram_ff_293>.
+    Found 1-bit register for signal <my_ram_ff_294>.
+    Found 1-bit register for signal <my_ram_ff_295>.
+    Found 1-bit register for signal <my_ram_ff_296>.
+    Found 1-bit register for signal <my_ram_ff_297>.
+    Found 1-bit register for signal <my_ram_ff_298>.
+    Found 1-bit register for signal <my_ram_ff_299>.
+    Found 1-bit register for signal <my_ram_ff_300>.
+    Found 1-bit register for signal <my_ram_ff_301>.
+    Found 1-bit register for signal <my_ram_ff_302>.
+    Found 1-bit register for signal <my_ram_ff_303>.
+    Found 1-bit register for signal <my_ram_ff_304>.
+    Found 1-bit register for signal <my_ram_ff_305>.
+    Found 1-bit register for signal <my_ram_ff_306>.
+    Found 1-bit register for signal <my_ram_ff_307>.
+    Found 1-bit register for signal <my_ram_ff_308>.
+    Found 1-bit register for signal <my_ram_ff_309>.
+    Found 1-bit register for signal <my_ram_ff_310>.
+    Found 1-bit register for signal <my_ram_ff_311>.
+    Found 1-bit register for signal <my_ram_ff_312>.
+    Found 1-bit register for signal <my_ram_ff_313>.
+    Found 1-bit register for signal <my_ram_ff_314>.
+    Found 1-bit register for signal <my_ram_ff_315>.
+    Found 1-bit register for signal <my_ram_ff_316>.
+    Found 1-bit register for signal <my_ram_ff_317>.
+    Found 1-bit register for signal <my_ram_ff_318>.
+    Found 1-bit register for signal <my_ram_ff_319>.
+    Found 1-bit register for signal <my_ram_ff_320>.
+    Found 1-bit register for signal <my_ram_ff_321>.
+    Found 1-bit register for signal <my_ram_ff_322>.
+    Found 1-bit register for signal <my_ram_ff_323>.
+    Found 1-bit register for signal <my_ram_ff_324>.
+    Found 1-bit register for signal <my_ram_ff_325>.
+    Found 1-bit register for signal <my_ram_ff_326>.
+    Found 1-bit register for signal <my_ram_ff_327>.
+    Found 1-bit register for signal <my_ram_ff_328>.
+    Found 1-bit register for signal <my_ram_ff_329>.
+    Found 1-bit register for signal <my_ram_ff_330>.
+    Found 1-bit register for signal <my_ram_ff_331>.
+    Found 1-bit register for signal <my_ram_ff_332>.
+    Found 1-bit register for signal <my_ram_ff_333>.
+    Found 1-bit register for signal <my_ram_ff_334>.
+    Found 1-bit register for signal <my_ram_ff_335>.
+    Found 1-bit register for signal <my_ram_ff_336>.
+    Found 1-bit register for signal <my_ram_ff_337>.
+    Found 1-bit register for signal <my_ram_ff_338>.
+    Found 1-bit register for signal <my_ram_ff_339>.
+    Found 1-bit register for signal <my_ram_ff_340>.
+    Found 1-bit register for signal <my_ram_ff_341>.
+    Found 1-bit register for signal <my_ram_ff_342>.
+    Found 1-bit register for signal <my_ram_ff_343>.
+    Found 1-bit register for signal <my_ram_ff_344>.
+    Found 1-bit register for signal <my_ram_ff_345>.
+    Found 1-bit register for signal <my_ram_ff_346>.
+    Found 1-bit register for signal <my_ram_ff_347>.
+    Found 1-bit register for signal <my_ram_ff_348>.
+    Found 1-bit register for signal <my_ram_ff_349>.
+    Found 1-bit register for signal <my_ram_ff_350>.
+    Found 1-bit register for signal <my_ram_ff_351>.
+    Found 1-bit register for signal <my_ram_ff_352>.
+    Found 1-bit register for signal <my_ram_ff_353>.
+    Found 1-bit register for signal <my_ram_ff_354>.
+    Found 1-bit register for signal <my_ram_ff_355>.
+    Found 1-bit register for signal <my_ram_ff_356>.
+    Found 1-bit register for signal <my_ram_ff_357>.
+    Found 1-bit register for signal <my_ram_ff_358>.
+    Found 1-bit register for signal <my_ram_ff_359>.
+    Found 1-bit register for signal <my_ram_ff_360>.
+    Found 1-bit register for signal <my_ram_ff_361>.
+    Found 1-bit register for signal <my_ram_ff_362>.
+    Found 1-bit register for signal <my_ram_ff_363>.
+    Found 1-bit register for signal <my_ram_ff_364>.
+    Found 1-bit register for signal <my_ram_ff_365>.
+    Found 1-bit register for signal <my_ram_ff_366>.
+    Found 1-bit register for signal <my_ram_ff_367>.
+    Found 1-bit register for signal <my_ram_ff_368>.
+    Found 1-bit register for signal <my_ram_ff_369>.
+    Found 1-bit register for signal <my_ram_ff_370>.
+    Found 1-bit register for signal <my_ram_ff_371>.
+    Found 1-bit register for signal <my_ram_ff_372>.
+    Found 1-bit register for signal <my_ram_ff_373>.
+    Found 1-bit register for signal <my_ram_ff_374>.
+    Found 1-bit register for signal <my_ram_ff_375>.
+    Found 1-bit register for signal <my_ram_ff_376>.
+    Found 1-bit register for signal <my_ram_ff_377>.
+    Found 1-bit register for signal <my_ram_ff_378>.
+    Found 1-bit register for signal <my_ram_ff_379>.
+    Found 1-bit register for signal <my_ram_ff_380>.
+    Found 1-bit register for signal <my_ram_ff_381>.
+    Found 1-bit register for signal <my_ram_ff_382>.
+    Found 1-bit register for signal <my_ram_ff_383>.
+    Found 1-bit register for signal <my_ram_ff_384>.
+    Found 1-bit register for signal <my_ram_ff_385>.
+    Found 1-bit register for signal <my_ram_ff_386>.
+    Found 1-bit register for signal <my_ram_ff_387>.
+    Found 1-bit register for signal <my_ram_ff_388>.
+    Found 1-bit register for signal <my_ram_ff_389>.
+    Found 1-bit register for signal <my_ram_ff_390>.
+    Found 1-bit register for signal <my_ram_ff_391>.
+    Found 1-bit register for signal <my_ram_ff_392>.
+    Found 1-bit register for signal <my_ram_ff_393>.
+    Found 1-bit register for signal <my_ram_ff_394>.
+    Found 1-bit register for signal <my_ram_ff_395>.
+    Found 1-bit register for signal <my_ram_ff_396>.
+    Found 1-bit register for signal <my_ram_ff_397>.
+    Found 1-bit register for signal <my_ram_ff_398>.
+    Found 1-bit register for signal <my_ram_ff_399>.
+    Found 1-bit register for signal <my_ram_ff_400>.
+    Found 1-bit register for signal <my_ram_ff_401>.
+    Found 1-bit register for signal <my_ram_ff_402>.
+    Found 1-bit register for signal <my_ram_ff_403>.
+    Found 1-bit register for signal <my_ram_ff_404>.
+    Found 1-bit register for signal <my_ram_ff_405>.
+    Found 1-bit register for signal <my_ram_ff_406>.
+    Found 1-bit register for signal <my_ram_ff_407>.
+    Found 1-bit register for signal <my_ram_ff_408>.
+    Found 1-bit register for signal <my_ram_ff_409>.
+    Found 1-bit register for signal <my_ram_ff_410>.
+    Found 1-bit register for signal <my_ram_ff_411>.
+    Found 1-bit register for signal <my_ram_ff_412>.
+    Found 1-bit register for signal <my_ram_ff_413>.
+    Found 1-bit register for signal <my_ram_ff_414>.
+    Found 1-bit register for signal <my_ram_ff_415>.
+    Found 1-bit register for signal <my_ram_ff_416>.
+    Found 1-bit register for signal <my_ram_ff_417>.
+    Found 1-bit register for signal <my_ram_ff_418>.
+    Found 1-bit register for signal <my_ram_ff_419>.
+    Found 1-bit register for signal <my_ram_ff_420>.
+    Found 1-bit register for signal <my_ram_ff_421>.
+    Found 1-bit register for signal <my_ram_ff_422>.
+    Found 1-bit register for signal <my_ram_ff_423>.
+    Found 1-bit register for signal <my_ram_ff_424>.
+    Found 1-bit register for signal <my_ram_ff_425>.
+    Found 1-bit register for signal <my_ram_ff_426>.
+    Found 1-bit register for signal <my_ram_ff_427>.
+    Found 1-bit register for signal <my_ram_ff_428>.
+    Found 1-bit register for signal <my_ram_ff_429>.
+    Found 1-bit register for signal <my_ram_ff_430>.
+    Found 1-bit register for signal <my_ram_ff_431>.
+    Found 1-bit register for signal <my_ram_ff_432>.
+    Found 1-bit register for signal <my_ram_ff_433>.
+    Found 1-bit register for signal <my_ram_ff_434>.
+    Found 1-bit register for signal <my_ram_ff_435>.
+    Found 1-bit register for signal <my_ram_ff_436>.
+    Found 1-bit register for signal <my_ram_ff_437>.
+    Found 1-bit register for signal <my_ram_ff_438>.
+    Found 1-bit register for signal <my_ram_ff_439>.
+    Found 1-bit register for signal <my_ram_ff_440>.
+    Found 1-bit register for signal <my_ram_ff_441>.
+    Found 1-bit register for signal <my_ram_ff_442>.
+    Found 1-bit register for signal <my_ram_ff_443>.
+    Found 1-bit register for signal <my_ram_ff_444>.
+    Found 1-bit register for signal <my_ram_ff_445>.
+    Found 1-bit register for signal <my_ram_ff_446>.
+    Found 1-bit register for signal <my_ram_ff_447>.
+    Found 1-bit register for signal <my_ram_ff_448>.
+    Found 1-bit register for signal <my_ram_ff_449>.
+    Found 1-bit register for signal <my_ram_ff_450>.
+    Found 1-bit register for signal <my_ram_ff_451>.
+    Found 1-bit register for signal <my_ram_ff_452>.
+    Found 1-bit register for signal <my_ram_ff_453>.
+    Found 1-bit register for signal <my_ram_ff_454>.
+    Found 1-bit register for signal <my_ram_ff_455>.
+    Found 1-bit register for signal <my_ram_ff_456>.
+    Found 1-bit register for signal <my_ram_ff_457>.
+    Found 1-bit register for signal <my_ram_ff_458>.
+    Found 1-bit register for signal <my_ram_ff_459>.
+    Found 1-bit register for signal <my_ram_ff_460>.
+    Found 1-bit register for signal <my_ram_ff_461>.
+    Found 1-bit register for signal <my_ram_ff_462>.
+    Found 1-bit register for signal <my_ram_ff_463>.
+    Found 1-bit register for signal <my_ram_ff_464>.
+    Found 1-bit register for signal <my_ram_ff_465>.
+    Found 1-bit register for signal <my_ram_ff_466>.
+    Found 1-bit register for signal <my_ram_ff_467>.
+    Found 1-bit register for signal <my_ram_ff_468>.
+    Found 1-bit register for signal <my_ram_ff_469>.
+    Found 1-bit register for signal <my_ram_ff_470>.
+    Found 1-bit register for signal <my_ram_ff_471>.
+    Found 1-bit register for signal <my_ram_ff_472>.
+    Found 1-bit register for signal <my_ram_ff_473>.
+    Found 1-bit register for signal <my_ram_ff_474>.
+    Found 1-bit register for signal <my_ram_ff_475>.
+    Found 1-bit register for signal <my_ram_ff_476>.
+    Found 1-bit register for signal <my_ram_ff_477>.
+    Found 1-bit register for signal <my_ram_ff_478>.
+    Found 1-bit register for signal <my_ram_ff_479>.
+    Found 1-bit register for signal <my_ram_ff_480>.
+    Found 1-bit register for signal <my_ram_ff_481>.
+    Found 1-bit register for signal <my_ram_ff_482>.
+    Found 1-bit register for signal <my_ram_ff_483>.
+    Found 1-bit register for signal <my_ram_ff_484>.
+    Found 1-bit register for signal <my_ram_ff_485>.
+    Found 1-bit register for signal <my_ram_ff_486>.
+    Found 1-bit register for signal <my_ram_ff_487>.
+    Found 1-bit register for signal <my_ram_ff_488>.
+    Found 1-bit register for signal <my_ram_ff_489>.
+    Found 1-bit register for signal <my_ram_ff_490>.
+    Found 1-bit register for signal <my_ram_ff_491>.
+    Found 1-bit register for signal <my_ram_ff_492>.
+    Found 1-bit register for signal <my_ram_ff_493>.
+    Found 1-bit register for signal <my_ram_ff_494>.
+    Found 1-bit register for signal <my_ram_ff_495>.
+    Found 1-bit register for signal <my_ram_ff_496>.
+    Found 1-bit register for signal <my_ram_ff_497>.
+    Found 1-bit register for signal <my_ram_ff_498>.
+    Found 1-bit register for signal <my_ram_ff_499>.
+    Found 1-bit register for signal <my_ram_ff_500>.
+    Found 1-bit register for signal <my_ram_ff_501>.
+    Found 1-bit register for signal <my_ram_ff_502>.
+    Found 1-bit register for signal <my_ram_ff_503>.
+    Found 1-bit register for signal <my_ram_ff_504>.
+    Found 1-bit register for signal <my_ram_ff_505>.
+    Found 1-bit register for signal <my_ram_ff_506>.
+    Found 1-bit register for signal <my_ram_ff_507>.
+    Found 1-bit register for signal <my_ram_ff_508>.
+    Found 1-bit register for signal <my_ram_ff_509>.
+    Found 1-bit register for signal <my_ram_ff_510>.
+    Found 1-bit register for signal <my_ram_ff_511>.
+    Found 1-bit register for signal <my_ram_ff_512>.
+    Found 1-bit register for signal <my_ram_ff_513>.
+    Found 1-bit register for signal <my_ram_ff_514>.
+    Found 1-bit register for signal <my_ram_ff_515>.
+    Found 1-bit register for signal <my_ram_ff_516>.
+    Found 1-bit register for signal <my_ram_ff_517>.
+    Found 1-bit register for signal <my_ram_ff_518>.
+    Found 1-bit register for signal <my_ram_ff_519>.
+    Found 1-bit register for signal <my_ram_ff_520>.
+    Found 1-bit register for signal <my_ram_ff_521>.
+    Found 1-bit register for signal <my_ram_ff_522>.
+    Found 1-bit register for signal <my_ram_ff_523>.
+    Found 1-bit register for signal <my_ram_ff_524>.
+    Found 1-bit register for signal <my_ram_ff_525>.
+    Found 1-bit register for signal <my_ram_ff_526>.
+    Found 1-bit register for signal <my_ram_ff_527>.
+    Found 1-bit register for signal <my_ram_ff_528>.
+    Found 1-bit register for signal <my_ram_ff_529>.
+    Found 1-bit register for signal <my_ram_ff_530>.
+    Found 1-bit register for signal <my_ram_ff_531>.
+    Found 1-bit register for signal <my_ram_ff_532>.
+    Found 1-bit register for signal <my_ram_ff_533>.
+    Found 1-bit register for signal <my_ram_ff_534>.
+    Found 1-bit register for signal <my_ram_ff_535>.
+    Found 1-bit register for signal <my_ram_ff_536>.
+    Found 1-bit register for signal <my_ram_ff_537>.
+    Found 1-bit register for signal <my_ram_ff_538>.
+    Found 1-bit register for signal <my_ram_ff_539>.
+    Found 1-bit register for signal <my_ram_ff_540>.
+    Found 1-bit register for signal <my_ram_ff_541>.
+    Found 1-bit register for signal <my_ram_ff_542>.
+    Found 1-bit register for signal <my_ram_ff_543>.
+    Found 1-bit register for signal <my_ram_ff_544>.
+    Found 1-bit register for signal <my_ram_ff_545>.
+    Found 1-bit register for signal <my_ram_ff_546>.
+    Found 1-bit register for signal <my_ram_ff_547>.
+    Found 1-bit register for signal <my_ram_ff_548>.
+    Found 1-bit register for signal <my_ram_ff_549>.
+    Found 1-bit register for signal <my_ram_ff_550>.
+    Found 1-bit register for signal <my_ram_ff_551>.
+    Found 1-bit register for signal <my_ram_ff_552>.
+    Found 1-bit register for signal <my_ram_ff_553>.
+    Found 1-bit register for signal <my_ram_ff_554>.
+    Found 1-bit register for signal <my_ram_ff_555>.
+    Found 1-bit register for signal <my_ram_ff_556>.
+    Found 1-bit register for signal <my_ram_ff_557>.
+    Found 1-bit register for signal <my_ram_ff_558>.
+    Found 1-bit register for signal <my_ram_ff_559>.
+    Found 1-bit register for signal <my_ram_ff_560>.
+    Found 1-bit register for signal <my_ram_ff_561>.
+    Found 1-bit register for signal <my_ram_ff_562>.
+    Found 1-bit register for signal <my_ram_ff_563>.
+    Found 1-bit register for signal <my_ram_ff_564>.
+    Found 1-bit register for signal <my_ram_ff_565>.
+    Found 1-bit register for signal <my_ram_ff_566>.
+    Found 1-bit register for signal <my_ram_ff_567>.
+    Found 1-bit register for signal <my_ram_ff_568>.
+    Found 1-bit register for signal <my_ram_ff_569>.
+    Found 1-bit register for signal <my_ram_ff_570>.
+    Found 1-bit register for signal <my_ram_ff_571>.
+    Found 1-bit register for signal <my_ram_ff_572>.
+    Found 1-bit register for signal <my_ram_ff_573>.
+    Found 1-bit register for signal <my_ram_ff_574>.
+    Found 1-bit register for signal <my_ram_ff_575>.
+    Found 1-bit register for signal <my_ram_ff_576>.
+    Found 1-bit register for signal <my_ram_ff_577>.
+    Found 1-bit register for signal <my_ram_ff_578>.
+    Found 1-bit register for signal <my_ram_ff_579>.
+    Found 1-bit register for signal <my_ram_ff_580>.
+    Found 1-bit register for signal <my_ram_ff_581>.
+    Found 1-bit register for signal <my_ram_ff_582>.
+    Found 1-bit register for signal <my_ram_ff_583>.
+    Found 1-bit register for signal <my_ram_ff_584>.
+    Found 1-bit register for signal <my_ram_ff_585>.
+    Found 1-bit register for signal <my_ram_ff_586>.
+    Found 1-bit register for signal <my_ram_ff_587>.
+    Found 1-bit register for signal <my_ram_ff_588>.
+    Found 1-bit register for signal <my_ram_ff_589>.
+    Found 1-bit register for signal <my_ram_ff_590>.
+    Found 1-bit register for signal <my_ram_ff_591>.
+    Found 1-bit register for signal <my_ram_ff_592>.
+    Found 1-bit register for signal <my_ram_ff_593>.
+    Found 1-bit register for signal <my_ram_ff_594>.
+    Found 1-bit register for signal <my_ram_ff_595>.
+    Found 1-bit register for signal <my_ram_ff_596>.
+    Found 1-bit register for signal <my_ram_ff_597>.
+    Found 1-bit register for signal <my_ram_ff_598>.
+    Found 1-bit register for signal <my_ram_ff_599>.
+    Found 1-bit register for signal <my_ram_ff_600>.
+    Found 1-bit register for signal <my_ram_ff_601>.
+    Found 1-bit register for signal <my_ram_ff_602>.
+    Found 1-bit register for signal <my_ram_ff_603>.
+    Found 1-bit register for signal <my_ram_ff_604>.
+    Found 1-bit register for signal <my_ram_ff_605>.
+    Found 1-bit register for signal <my_ram_ff_606>.
+    Found 1-bit register for signal <my_ram_ff_607>.
+    Found 1-bit register for signal <my_ram_ff_608>.
+    Found 1-bit register for signal <my_ram_ff_609>.
+    Found 1-bit register for signal <my_ram_ff_610>.
+    Found 1-bit register for signal <my_ram_ff_611>.
+    Found 1-bit register for signal <my_ram_ff_612>.
+    Found 1-bit register for signal <my_ram_ff_613>.
+    Found 1-bit register for signal <my_ram_ff_614>.
+    Found 1-bit register for signal <my_ram_ff_615>.
+    Found 1-bit register for signal <my_ram_ff_616>.
+    Found 1-bit register for signal <my_ram_ff_617>.
+    Found 1-bit register for signal <my_ram_ff_618>.
+    Found 1-bit register for signal <my_ram_ff_619>.
+    Found 1-bit register for signal <my_ram_ff_620>.
+    Found 1-bit register for signal <my_ram_ff_621>.
+    Found 1-bit register for signal <my_ram_ff_622>.
+    Found 1-bit register for signal <my_ram_ff_623>.
+    Found 1-bit register for signal <my_ram_ff_624>.
+    Found 1-bit register for signal <my_ram_ff_625>.
+    Found 1-bit register for signal <my_ram_ff_626>.
+    Found 1-bit register for signal <my_ram_ff_627>.
+    Found 1-bit register for signal <my_ram_ff_628>.
+    Found 1-bit register for signal <my_ram_ff_629>.
+    Found 1-bit register for signal <my_ram_ff_630>.
+    Found 1-bit register for signal <my_ram_ff_631>.
+    Found 1-bit register for signal <my_ram_ff_632>.
+    Found 1-bit register for signal <my_ram_ff_633>.
+    Found 1-bit register for signal <my_ram_ff_634>.
+    Found 1-bit register for signal <my_ram_ff_635>.
+    Found 1-bit register for signal <my_ram_ff_636>.
+    Found 1-bit register for signal <my_ram_ff_637>.
+    Found 1-bit register for signal <my_ram_ff_638>.
+    Found 1-bit register for signal <my_ram_ff_639>.
+    Found 1-bit register for signal <my_ram_ff_640>.
+    Found 1-bit register for signal <my_ram_ff_641>.
+    Found 1-bit register for signal <my_ram_ff_642>.
+    Found 1-bit register for signal <my_ram_ff_643>.
+    Found 1-bit register for signal <my_ram_ff_644>.
+    Found 1-bit register for signal <my_ram_ff_645>.
+    Found 1-bit register for signal <my_ram_ff_646>.
+    Found 1-bit register for signal <my_ram_ff_647>.
+    Found 1-bit register for signal <my_ram_ff_648>.
+    Found 1-bit register for signal <my_ram_ff_649>.
+    Found 1-bit register for signal <my_ram_ff_650>.
+    Found 1-bit register for signal <my_ram_ff_651>.
+    Found 1-bit register for signal <my_ram_ff_652>.
+    Found 1-bit register for signal <my_ram_ff_653>.
+    Found 1-bit register for signal <my_ram_ff_654>.
+    Found 1-bit register for signal <my_ram_ff_655>.
+    Found 1-bit register for signal <my_ram_ff_656>.
+    Found 1-bit register for signal <my_ram_ff_657>.
+    Found 1-bit register for signal <my_ram_ff_658>.
+    Found 1-bit register for signal <my_ram_ff_659>.
+    Found 1-bit register for signal <my_ram_ff_660>.
+    Found 1-bit register for signal <my_ram_ff_661>.
+    Found 1-bit register for signal <my_ram_ff_662>.
+    Found 1-bit register for signal <my_ram_ff_663>.
+    Found 1-bit register for signal <my_ram_ff_664>.
+    Found 1-bit register for signal <my_ram_ff_665>.
+    Found 1-bit register for signal <my_ram_ff_666>.
+    Found 1-bit register for signal <my_ram_ff_667>.
+    Found 1-bit register for signal <my_ram_ff_668>.
+    Found 1-bit register for signal <my_ram_ff_669>.
+    Found 1-bit register for signal <my_ram_ff_670>.
+    Found 1-bit register for signal <my_ram_ff_671>.
+    Found 1-bit register for signal <my_ram_ff_672>.
+    Found 1-bit register for signal <my_ram_ff_673>.
+    Found 1-bit register for signal <my_ram_ff_674>.
+    Found 1-bit register for signal <my_ram_ff_675>.
+    Found 1-bit register for signal <my_ram_ff_676>.
+    Found 1-bit register for signal <my_ram_ff_677>.
+    Found 1-bit register for signal <my_ram_ff_678>.
+    Found 1-bit register for signal <my_ram_ff_679>.
+    Found 1-bit register for signal <my_ram_ff_680>.
+    Found 1-bit register for signal <my_ram_ff_681>.
+    Found 1-bit register for signal <my_ram_ff_682>.
+    Found 1-bit register for signal <my_ram_ff_683>.
+    Found 1-bit register for signal <my_ram_ff_684>.
+    Found 1-bit register for signal <my_ram_ff_685>.
+    Found 1-bit register for signal <my_ram_ff_686>.
+    Found 1-bit register for signal <my_ram_ff_687>.
+    Found 1-bit register for signal <my_ram_ff_688>.
+    Found 1-bit register for signal <my_ram_ff_689>.
+    Found 1-bit register for signal <my_ram_ff_690>.
+    Found 1-bit register for signal <my_ram_ff_691>.
+    Found 1-bit register for signal <my_ram_ff_692>.
+    Found 1-bit register for signal <my_ram_ff_693>.
+    Found 1-bit register for signal <my_ram_ff_694>.
+    Found 1-bit register for signal <my_ram_ff_695>.
+    Found 1-bit register for signal <my_ram_ff_696>.
+    Found 1-bit register for signal <my_ram_ff_697>.
+    Found 1-bit register for signal <my_ram_ff_698>.
+    Found 1-bit register for signal <my_ram_ff_699>.
+    Found 1-bit register for signal <my_ram_ff_700>.
+    Found 1-bit register for signal <my_ram_ff_701>.
+    Found 1-bit register for signal <my_ram_ff_702>.
+    Found 1-bit register for signal <my_ram_ff_703>.
+    Found 1-bit register for signal <my_ram_ff_704>.
+    Found 1-bit register for signal <my_ram_ff_705>.
+    Found 1-bit register for signal <my_ram_ff_706>.
+    Found 1-bit register for signal <my_ram_ff_707>.
+    Found 1-bit register for signal <my_ram_ff_708>.
+    Found 1-bit register for signal <my_ram_ff_709>.
+    Found 1-bit register for signal <my_ram_ff_710>.
+    Found 1-bit register for signal <my_ram_ff_711>.
+    Found 1-bit register for signal <my_ram_ff_712>.
+    Found 1-bit register for signal <my_ram_ff_713>.
+    Found 1-bit register for signal <my_ram_ff_714>.
+    Found 1-bit register for signal <my_ram_ff_715>.
+    Found 1-bit register for signal <my_ram_ff_716>.
+    Found 1-bit register for signal <my_ram_ff_717>.
+    Found 1-bit register for signal <my_ram_ff_718>.
+    Found 1-bit register for signal <my_ram_ff_719>.
+    Found 1-bit register for signal <my_ram_ff_720>.
+    Found 1-bit register for signal <my_ram_ff_721>.
+    Found 1-bit register for signal <my_ram_ff_722>.
+    Found 1-bit register for signal <my_ram_ff_723>.
+    Found 1-bit register for signal <my_ram_ff_724>.
+    Found 1-bit register for signal <my_ram_ff_725>.
+    Found 1-bit register for signal <my_ram_ff_726>.
+    Found 1-bit register for signal <my_ram_ff_727>.
+    Found 1-bit register for signal <my_ram_ff_728>.
+    Found 1-bit register for signal <my_ram_ff_729>.
+    Found 1-bit register for signal <my_ram_ff_730>.
+    Found 1-bit register for signal <my_ram_ff_731>.
+    Found 1-bit register for signal <my_ram_ff_732>.
+    Found 1-bit register for signal <my_ram_ff_733>.
+    Found 1-bit register for signal <my_ram_ff_734>.
+    Found 1-bit register for signal <my_ram_ff_735>.
+    Found 1-bit register for signal <my_ram_ff_736>.
+    Found 1-bit register for signal <my_ram_ff_737>.
+    Found 1-bit register for signal <my_ram_ff_738>.
+    Found 1-bit register for signal <my_ram_ff_739>.
+    Found 1-bit register for signal <my_ram_ff_740>.
+    Found 1-bit register for signal <my_ram_ff_741>.
+    Found 1-bit register for signal <my_ram_ff_742>.
+    Found 1-bit register for signal <my_ram_ff_743>.
+    Found 1-bit register for signal <my_ram_ff_744>.
+    Found 1-bit register for signal <my_ram_ff_745>.
+    Found 1-bit register for signal <my_ram_ff_746>.
+    Found 1-bit register for signal <my_ram_ff_747>.
+    Found 1-bit register for signal <my_ram_ff_748>.
+    Found 1-bit register for signal <my_ram_ff_749>.
+    Found 1-bit register for signal <my_ram_ff_750>.
+    Found 1-bit register for signal <my_ram_ff_751>.
+    Found 1-bit register for signal <my_ram_ff_752>.
+    Found 1-bit register for signal <my_ram_ff_753>.
+    Found 1-bit register for signal <my_ram_ff_754>.
+    Found 1-bit register for signal <my_ram_ff_755>.
+    Found 1-bit register for signal <my_ram_ff_756>.
+    Found 1-bit register for signal <my_ram_ff_757>.
+    Found 1-bit register for signal <my_ram_ff_758>.
+    Found 1-bit register for signal <my_ram_ff_759>.
+    Found 1-bit register for signal <my_ram_ff_760>.
+    Found 1-bit register for signal <my_ram_ff_761>.
+    Found 1-bit register for signal <my_ram_ff_762>.
+    Found 1-bit register for signal <my_ram_ff_763>.
+    Found 1-bit register for signal <my_ram_ff_764>.
+    Found 1-bit register for signal <my_ram_ff_765>.
+    Found 1-bit register for signal <my_ram_ff_766>.
+    Found 1-bit register for signal <my_ram_ff_767>.
+    Found 1-bit register for signal <my_ram_ff_768>.
+    Found 1-bit register for signal <my_ram_ff_769>.
+    Found 1-bit register for signal <my_ram_ff_770>.
+    Found 1-bit register for signal <my_ram_ff_771>.
+    Found 1-bit register for signal <my_ram_ff_772>.
+    Found 1-bit register for signal <my_ram_ff_773>.
+    Found 1-bit register for signal <my_ram_ff_774>.
+    Found 1-bit register for signal <my_ram_ff_775>.
+    Found 1-bit register for signal <my_ram_ff_776>.
+    Found 1-bit register for signal <my_ram_ff_777>.
+    Found 1-bit register for signal <my_ram_ff_778>.
+    Found 1-bit register for signal <my_ram_ff_779>.
+    Found 1-bit register for signal <my_ram_ff_780>.
+    Found 1-bit register for signal <my_ram_ff_781>.
+    Found 1-bit register for signal <my_ram_ff_782>.
+    Found 1-bit register for signal <my_ram_ff_783>.
+    Found 1-bit register for signal <my_ram_ff_784>.
+    Found 1-bit register for signal <my_ram_ff_785>.
+    Found 1-bit register for signal <my_ram_ff_786>.
+    Found 1-bit register for signal <my_ram_ff_787>.
+    Found 1-bit register for signal <my_ram_ff_788>.
+    Found 1-bit register for signal <my_ram_ff_789>.
+    Found 1-bit register for signal <my_ram_ff_790>.
+    Found 1-bit register for signal <my_ram_ff_791>.
+    Found 1-bit register for signal <my_ram_ff_792>.
+    Found 1-bit register for signal <my_ram_ff_793>.
+    Found 1-bit register for signal <my_ram_ff_794>.
+    Found 1-bit register for signal <my_ram_ff_795>.
+    Found 1-bit register for signal <my_ram_ff_796>.
+    Found 1-bit register for signal <my_ram_ff_797>.
+    Found 1-bit register for signal <my_ram_ff_798>.
+    Found 1-bit register for signal <my_ram_ff_799>.
+    Found 1-bit register for signal <my_ram_ff_800>.
+    Found 1-bit register for signal <my_ram_ff_801>.
+    Found 1-bit register for signal <my_ram_ff_802>.
+    Found 1-bit register for signal <my_ram_ff_803>.
+    Found 1-bit register for signal <my_ram_ff_804>.
+    Found 1-bit register for signal <my_ram_ff_805>.
+    Found 1-bit register for signal <my_ram_ff_806>.
+    Found 1-bit register for signal <my_ram_ff_807>.
+    Found 1-bit register for signal <my_ram_ff_808>.
+    Found 1-bit register for signal <my_ram_ff_809>.
+    Found 1-bit register for signal <my_ram_ff_810>.
+    Found 1-bit register for signal <my_ram_ff_811>.
+    Found 1-bit register for signal <my_ram_ff_812>.
+    Found 1-bit register for signal <my_ram_ff_813>.
+    Found 1-bit register for signal <my_ram_ff_814>.
+    Found 1-bit register for signal <my_ram_ff_815>.
+    Found 1-bit register for signal <my_ram_ff_816>.
+    Found 1-bit register for signal <my_ram_ff_817>.
+    Found 1-bit register for signal <my_ram_ff_818>.
+    Found 1-bit register for signal <my_ram_ff_819>.
+    Found 1-bit register for signal <my_ram_ff_820>.
+    Found 1-bit register for signal <my_ram_ff_821>.
+    Found 1-bit register for signal <my_ram_ff_822>.
+    Found 1-bit register for signal <my_ram_ff_823>.
+    Found 1-bit register for signal <my_ram_ff_824>.
+    Found 1-bit register for signal <my_ram_ff_825>.
+    Found 1-bit register for signal <my_ram_ff_826>.
+    Found 1-bit register for signal <my_ram_ff_827>.
+    Found 1-bit register for signal <my_ram_ff_828>.
+    Found 1-bit register for signal <my_ram_ff_829>.
+    Found 1-bit register for signal <my_ram_ff_830>.
+    Found 1-bit register for signal <my_ram_ff_831>.
+    Found 1-bit register for signal <my_ram_ff_832>.
+    Found 1-bit register for signal <my_ram_ff_833>.
+    Found 1-bit register for signal <my_ram_ff_834>.
+    Found 1-bit register for signal <my_ram_ff_835>.
+    Found 1-bit register for signal <my_ram_ff_836>.
+    Found 1-bit register for signal <my_ram_ff_837>.
+    Found 1-bit register for signal <my_ram_ff_838>.
+    Found 1-bit register for signal <my_ram_ff_839>.
+    Found 1-bit register for signal <my_ram_ff_840>.
+    Found 1-bit register for signal <my_ram_ff_841>.
+    Found 1-bit register for signal <my_ram_ff_842>.
+    Found 1-bit register for signal <my_ram_ff_843>.
+    Found 1-bit register for signal <my_ram_ff_844>.
+    Found 1-bit register for signal <my_ram_ff_845>.
+    Found 1-bit register for signal <my_ram_ff_846>.
+    Found 1-bit register for signal <my_ram_ff_847>.
+    Found 1-bit register for signal <my_ram_ff_848>.
+    Found 1-bit register for signal <my_ram_ff_849>.
+    Found 1-bit register for signal <my_ram_ff_850>.
+    Found 1-bit register for signal <my_ram_ff_851>.
+    Found 1-bit register for signal <my_ram_ff_852>.
+    Found 1-bit register for signal <my_ram_ff_853>.
+    Found 1-bit register for signal <my_ram_ff_854>.
+    Found 1-bit register for signal <my_ram_ff_855>.
+    Found 1-bit register for signal <my_ram_ff_856>.
+    Found 1-bit register for signal <my_ram_ff_857>.
+    Found 1-bit register for signal <my_ram_ff_858>.
+    Found 1-bit register for signal <my_ram_ff_859>.
+    Found 1-bit register for signal <my_ram_ff_860>.
+    Found 1-bit register for signal <my_ram_ff_861>.
+    Found 1-bit register for signal <my_ram_ff_862>.
+    Found 1-bit register for signal <my_ram_ff_863>.
+    Found 1-bit register for signal <my_ram_ff_864>.
+    Found 1-bit register for signal <my_ram_ff_865>.
+    Found 1-bit register for signal <my_ram_ff_866>.
+    Found 1-bit register for signal <my_ram_ff_867>.
+    Found 1-bit register for signal <my_ram_ff_868>.
+    Found 1-bit register for signal <my_ram_ff_869>.
+    Found 1-bit register for signal <my_ram_ff_870>.
+    Found 1-bit register for signal <my_ram_ff_871>.
+    Found 1-bit register for signal <my_ram_ff_872>.
+    Found 1-bit register for signal <my_ram_ff_873>.
+    Found 1-bit register for signal <my_ram_ff_874>.
+    Found 1-bit register for signal <my_ram_ff_875>.
+    Found 1-bit register for signal <my_ram_ff_876>.
+    Found 1-bit register for signal <my_ram_ff_877>.
+    Found 1-bit register for signal <my_ram_ff_878>.
+    Found 1-bit register for signal <my_ram_ff_879>.
+    Found 1-bit register for signal <my_ram_ff_880>.
+    Found 1-bit register for signal <my_ram_ff_881>.
+    Found 1-bit register for signal <my_ram_ff_882>.
+    Found 1-bit register for signal <my_ram_ff_883>.
+    Found 1-bit register for signal <my_ram_ff_884>.
+    Found 1-bit register for signal <my_ram_ff_885>.
+    Found 1-bit register for signal <my_ram_ff_886>.
+    Found 1-bit register for signal <my_ram_ff_887>.
+    Found 1-bit register for signal <my_ram_ff_888>.
+    Found 1-bit register for signal <my_ram_ff_889>.
+    Found 1-bit register for signal <my_ram_ff_890>.
+    Found 1-bit register for signal <my_ram_ff_891>.
+    Found 1-bit register for signal <my_ram_ff_892>.
+    Found 1-bit register for signal <my_ram_ff_893>.
+    Found 1-bit register for signal <my_ram_ff_894>.
+    Found 1-bit register for signal <my_ram_ff_895>.
+    Found 1-bit register for signal <my_ram_ff_896>.
+    Found 1-bit register for signal <my_ram_ff_897>.
+    Found 1-bit register for signal <my_ram_ff_898>.
+    Found 1-bit register for signal <my_ram_ff_899>.
+    Found 1-bit register for signal <my_ram_ff_900>.
+    Found 1-bit register for signal <my_ram_ff_901>.
+    Found 1-bit register for signal <my_ram_ff_902>.
+    Found 1-bit register for signal <my_ram_ff_903>.
+    Found 1-bit register for signal <my_ram_ff_904>.
+    Found 1-bit register for signal <my_ram_ff_905>.
+    Found 1-bit register for signal <my_ram_ff_906>.
+    Found 1-bit register for signal <my_ram_ff_907>.
+    Found 1-bit register for signal <my_ram_ff_908>.
+    Found 1-bit register for signal <my_ram_ff_909>.
+    Found 1-bit register for signal <my_ram_ff_910>.
+    Found 1-bit register for signal <my_ram_ff_911>.
+    Found 1-bit register for signal <my_ram_ff_912>.
+    Found 1-bit register for signal <my_ram_ff_913>.
+    Found 1-bit register for signal <my_ram_ff_914>.
+    Found 1-bit register for signal <my_ram_ff_915>.
+    Found 1-bit register for signal <my_ram_ff_916>.
+    Found 1-bit register for signal <my_ram_ff_917>.
+    Found 1-bit register for signal <my_ram_ff_918>.
+    Found 1-bit register for signal <my_ram_ff_919>.
+    Found 1-bit register for signal <my_ram_ff_920>.
+    Found 1-bit register for signal <my_ram_ff_921>.
+    Found 1-bit register for signal <my_ram_ff_922>.
+    Found 1-bit register for signal <my_ram_ff_923>.
+    Found 1-bit register for signal <my_ram_ff_924>.
+    Found 1-bit register for signal <my_ram_ff_925>.
+    Found 1-bit register for signal <my_ram_ff_926>.
+    Found 1-bit register for signal <my_ram_ff_927>.
+    Found 1-bit register for signal <my_ram_ff_928>.
+    Found 1-bit register for signal <my_ram_ff_929>.
+    Found 1-bit register for signal <my_ram_ff_930>.
+    Found 1-bit register for signal <my_ram_ff_931>.
+    Found 1-bit register for signal <my_ram_ff_932>.
+    Found 1-bit register for signal <my_ram_ff_933>.
+    Found 1-bit register for signal <my_ram_ff_934>.
+    Found 1-bit register for signal <my_ram_ff_935>.
+    Found 1-bit register for signal <my_ram_ff_936>.
+    Found 1-bit register for signal <my_ram_ff_937>.
+    Found 1-bit register for signal <my_ram_ff_938>.
+    Found 1-bit register for signal <my_ram_ff_939>.
+    Found 1-bit register for signal <my_ram_ff_940>.
+    Found 1-bit register for signal <my_ram_ff_941>.
+    Found 1-bit register for signal <my_ram_ff_942>.
+    Found 1-bit register for signal <my_ram_ff_943>.
+    Found 1-bit register for signal <my_ram_ff_944>.
+    Found 1-bit register for signal <my_ram_ff_945>.
+    Found 1-bit register for signal <my_ram_ff_946>.
+    Found 1-bit register for signal <my_ram_ff_947>.
+    Found 1-bit register for signal <my_ram_ff_948>.
+    Found 1-bit register for signal <my_ram_ff_949>.
+    Found 1-bit register for signal <my_ram_ff_950>.
+    Found 1-bit register for signal <my_ram_ff_951>.
+    Found 1-bit register for signal <my_ram_ff_952>.
+    Found 1-bit register for signal <my_ram_ff_953>.
+    Found 1-bit register for signal <my_ram_ff_954>.
+    Found 1-bit register for signal <my_ram_ff_955>.
+    Found 1-bit register for signal <my_ram_ff_956>.
+    Found 1-bit register for signal <my_ram_ff_957>.
+    Found 1-bit register for signal <my_ram_ff_958>.
+    Found 1-bit register for signal <my_ram_ff_959>.
+    Found 1-bit register for signal <my_ram_ff_960>.
+    Found 1-bit register for signal <my_ram_ff_961>.
+    Found 1-bit register for signal <my_ram_ff_962>.
+    Found 1-bit register for signal <my_ram_ff_963>.
+    Found 1-bit register for signal <my_ram_ff_964>.
+    Found 1-bit register for signal <my_ram_ff_965>.
+    Found 1-bit register for signal <my_ram_ff_966>.
+    Found 1-bit register for signal <my_ram_ff_967>.
+    Found 1-bit register for signal <my_ram_ff_968>.
+    Found 1-bit register for signal <my_ram_ff_969>.
+    Found 1-bit register for signal <my_ram_ff_970>.
+    Found 1-bit register for signal <my_ram_ff_971>.
+    Found 1-bit register for signal <my_ram_ff_972>.
+    Found 1-bit register for signal <my_ram_ff_973>.
+    Found 1-bit register for signal <my_ram_ff_974>.
+    Found 1-bit register for signal <my_ram_ff_975>.
+    Found 1-bit register for signal <my_ram_ff_976>.
+    Found 1-bit register for signal <my_ram_ff_977>.
+    Found 1-bit register for signal <my_ram_ff_978>.
+    Found 1-bit register for signal <my_ram_ff_979>.
+    Found 1-bit register for signal <my_ram_ff_980>.
+    Found 1-bit register for signal <my_ram_ff_981>.
+    Found 1-bit register for signal <my_ram_ff_982>.
+    Found 1-bit register for signal <my_ram_ff_983>.
+    Found 1-bit register for signal <my_ram_ff_984>.
+    Found 1-bit register for signal <my_ram_ff_985>.
+    Found 1-bit register for signal <my_ram_ff_986>.
+    Found 1-bit register for signal <my_ram_ff_987>.
+    Found 1-bit register for signal <my_ram_ff_988>.
+    Found 1-bit register for signal <my_ram_ff_989>.
+    Found 1-bit register for signal <my_ram_ff_990>.
+    Found 1-bit register for signal <my_ram_ff_991>.
+    Found 1-bit register for signal <my_ram_ff_992>.
+    Found 1-bit register for signal <my_ram_ff_993>.
+    Found 1-bit register for signal <my_ram_ff_994>.
+    Found 1-bit register for signal <my_ram_ff_995>.
+    Found 1-bit register for signal <my_ram_ff_996>.
+    Found 1-bit register for signal <my_ram_ff_997>.
+    Found 1-bit register for signal <my_ram_ff_998>.
+    Found 1-bit register for signal <my_ram_ff_999>.
+    Found 1-bit register for signal <my_ram_ff_1000>.
+    Found 1-bit register for signal <my_ram_ff_1001>.
+    Found 1-bit register for signal <my_ram_ff_1002>.
+    Found 1-bit register for signal <my_ram_ff_1003>.
+    Found 1-bit register for signal <my_ram_ff_1004>.
+    Found 1-bit register for signal <my_ram_ff_1005>.
+    Found 1-bit register for signal <my_ram_ff_1006>.
+    Found 1-bit register for signal <my_ram_ff_1007>.
+    Found 1-bit register for signal <my_ram_ff_1008>.
+    Found 1-bit register for signal <my_ram_ff_1009>.
+    Found 1-bit register for signal <my_ram_ff_1010>.
+    Found 1-bit register for signal <my_ram_ff_1011>.
+    Found 1-bit register for signal <my_ram_ff_1012>.
+    Found 1-bit register for signal <my_ram_ff_1013>.
+    Found 1-bit register for signal <my_ram_ff_1014>.
+    Found 1-bit register for signal <my_ram_ff_1015>.
+    Found 1-bit register for signal <my_ram_ff_1016>.
+    Found 1-bit register for signal <my_ram_ff_1017>.
+    Found 1-bit register for signal <my_ram_ff_1018>.
+    Found 1-bit register for signal <my_ram_ff_1019>.
+    Found 1-bit register for signal <my_ram_ff_1020>.
+    Found 1-bit register for signal <my_ram_ff_1021>.
+    Found 1-bit register for signal <my_ram_ff_1022>.
+    Found 1-bit register for signal <my_ram_ff_1023>.
+    Found 16-bit 64-to-1 multiplexer for signal <DOUT> created at line 34.
+    Summary:
+	inferred 1024 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <RAM> synthesized.
+
+Synthesizing Unit <Decoder>.
+    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\Decoder.vhd".
+        data_width = 10
+        size = 16
+    Found 16-bit register for signal <output>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+Unit <Decoder> synthesized.
+
+Synthesizing Unit <clock_divider>.
+    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\Clock_divider.vhd".
+        how_fast = 20
+    Found 1-bit register for signal <divided_clk>.
+    Found 21-bit register for signal <internal_clock>.
+    Found 21-bit adder for signal <internal_clock[20]_GND_9_o_add_0_OUT> created at line 20.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  22 D-type flip-flop(s).
+Unit <clock_divider> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 5
+ 21-bit adder                                          : 2
+ 32-bit adder                                          : 2
+ 6-bit adder                                           : 1
+# Registers                                            : 1035
+ 1-bit register                                        : 1027
+ 10-bit register                                       : 1
+ 16-bit register                                       : 2
+ 21-bit register                                       : 2
+ 32-bit register                                       : 2
+ 6-bit register                                        : 1
+# Comparators                                          : 2
+ 32-bit comparator greater                             : 1
+ 32-bit comparator lessequal                           : 1
+# Multiplexers                                         : 1
+ 16-bit 64-to-1 multiplexer                            : 1
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <RNG>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+Unit <RNG> synthesized (advanced).
+
+Synthesizing (advanced) Unit <TopLevel>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+The following registers are absorbed into counter <RADDR>: 1 register on signal <RADDR>.
+Unit <TopLevel> synthesized (advanced).
+
+Synthesizing (advanced) Unit <clock_divider>.
+The following registers are absorbed into counter <internal_clock>: 1 register on signal <internal_clock>.
+Unit <clock_divider> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 5
+ 21-bit up counter                                     : 2
+ 32-bit up counter                                     : 2
+ 6-bit up counter                                      : 1
+# Registers                                            : 1069
+ Flip-Flops                                            : 1069
+# Comparators                                          : 2
+ 32-bit comparator greater                             : 1
+ 32-bit comparator lessequal                           : 1
+# Multiplexers                                         : 16
+ 1-bit 64-to-1 multiplexer                             : 16
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Decoder> ...
+
+Optimizing unit <TopLevel> ...
+
+Optimizing unit <RNG> ...
+
+Optimizing unit <RAM> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block TopLevel, actual ratio is 3.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 1181
+ Flip-Flops                                            : 1181
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : TopLevel.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1851
+#      GND                         : 1
+#      INV                         : 6
+#      LUT1                        : 102
+#      LUT3                        : 11
+#      LUT4                        : 1086
+#      LUT5                        : 20
+#      LUT6                        : 402
+#      MUXCY                       : 116
+#      VCC                         : 1
+#      XORCY                       : 106
+# FlipFlops/Latches                : 1181
+#      FD                          : 1071
+#      FD_1                        : 2
+#      FDE                         : 66
+#      FDR                         : 42
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 16
+#      OBUF                        : 16
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7a100tcsg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:            1181  out of  126800     0%  
+ Number of Slice LUTs:                 1627  out of  63400     2%  
+    Number used as Logic:              1627  out of  63400     2%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1634
+   Number with an unused Flip Flop:     453  out of   1634    27%  
+   Number with an unused LUT:             7  out of   1634     0%  
+   Number of fully used LUT-FF pairs:  1174  out of   1634    71%  
+   Number of unique control sets:         6
+
+IO Utilization: 
+ Number of IOs:                          17
+ Number of bonded IOBs:                  17  out of    210     8%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     32     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 1111  |
+c_divider/divided_clk              | BUFG                   | 54    |
+decoder/c_divider/divided_clk      | NONE(decoder/output_15)| 16    |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 2.571ns (Maximum Frequency: 388.984MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 0.645ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.358ns (frequency: 424.097MHz)
+  Total number of paths / destination ports: 15700 / 1152
+-------------------------------------------------------------------------
+Delay:               2.358ns (Levels of Logic = 8)
+  Source:            generator/count_3 (FF)
+  Destination:       generator/count_31 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: generator/count_3 to generator/count_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.361   0.688  generator/count_3 (generator/count_3)
+     LUT5:I0->O            1   0.097   0.000  generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_lut<0> (generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_lut<0>)
+     MUXCY:S->O            1   0.353   0.000  generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<0> (generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<1> (generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<2> (generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<3> (generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<4> (generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<4>)
+     MUXCY:CI->O           3   0.023   0.000  generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<5> (generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<5>)
+     MUXCY:CI->O          41   0.262   0.387  generator/Mcompar_GND_6_o_count[31]_LessThan_1_o_cy<5>_inv1_cy (generator/GND_6_o_count[31]_LessThan_1_o)
+     FDE:CE                    0.095          generator/rand_temp_1
+    ----------------------------------------
+    Total                      2.358ns (1.283ns logic, 1.075ns route)
+                                       (54.4% logic, 45.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'c_divider/divided_clk'
+  Clock period: 2.571ns (frequency: 388.984MHz)
+  Total number of paths / destination ports: 3299 / 63
+-------------------------------------------------------------------------
+Delay:               2.571ns (Levels of Logic = 34)
+  Source:            count_0 (FF)
+  Destination:       count_31 (FF)
+  Source Clock:      c_divider/divided_clk rising
+  Destination Clock: c_divider/divided_clk rising
+
+  Data Path: count_0 to count_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.361   0.284  count_0 (count_0)
+     INV:I->O              1   0.113   0.000  Mcount_count_lut<0>_INV_0 (Mcount_count_lut<0>)
+     MUXCY:S->O            1   0.353   0.000  Mcount_count_cy<0> (Mcount_count_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<1> (Mcount_count_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<2> (Mcount_count_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<3> (Mcount_count_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<4> (Mcount_count_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<5> (Mcount_count_cy<5>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<6> (Mcount_count_cy<6>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<7> (Mcount_count_cy<7>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<8> (Mcount_count_cy<8>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<9> (Mcount_count_cy<9>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<10> (Mcount_count_cy<10>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<11> (Mcount_count_cy<11>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<12> (Mcount_count_cy<12>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<13> (Mcount_count_cy<13>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<14> (Mcount_count_cy<14>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<15> (Mcount_count_cy<15>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<16> (Mcount_count_cy<16>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<17> (Mcount_count_cy<17>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<18> (Mcount_count_cy<18>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<19> (Mcount_count_cy<19>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<20> (Mcount_count_cy<20>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<21> (Mcount_count_cy<21>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<22> (Mcount_count_cy<22>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<23> (Mcount_count_cy<23>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<24> (Mcount_count_cy<24>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<25> (Mcount_count_cy<25>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<26> (Mcount_count_cy<26>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<27> (Mcount_count_cy<27>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<28> (Mcount_count_cy<28>)
+     MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<29> (Mcount_count_cy<29>)
+     MUXCY:CI->O           0   0.023   0.000  Mcount_count_cy<30> (Mcount_count_cy<30>)
+     XORCY:CI->O           1   0.370   0.295  Mcount_count_xor<31> (Result<31>)
+     LUT3:I2->O            1   0.097   0.000  count_31_dpot (count_31_dpot)
+     FDE:D                     0.008          count_31
+    ----------------------------------------
+    Total                      2.571ns (1.992ns logic, 0.579ns route)
+                                       (77.5% logic, 22.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'c_divider/divided_clk'
+  Total number of paths / destination ports: 16 / 16
+-------------------------------------------------------------------------
+Offset:              0.645ns (Levels of Logic = 1)
+  Source:            led_15 (FF)
+  Destination:       led<15> (PAD)
+  Source Clock:      c_divider/divided_clk rising
+
+  Data Path: led_15 to led<15>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.361   0.283  led_15 (led_15)
+     OBUF:I->O                 0.000          led_15_OBUF (led<15>)
+    ----------------------------------------
+    Total                      0.645ns (0.361ns logic, 0.283ns route)
+                                       (56.0% logic, 44.0% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock c_divider/divided_clk
+-----------------------------+---------+---------+---------+---------+
+                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                 |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------------+---------+---------+---------+---------+
+c_divider/divided_clk        |    2.571|         |         |         |
+clk                          |    1.356|         |         |         |
+decoder/c_divider/divided_clk|    1.022|         |         |         |
+-----------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    2.358|         |    0.653|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock decoder/c_divider/divided_clk
+---------------------+---------+---------+---------+---------+
+                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock         |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------+---------+---------+---------+---------+
+c_divider/divided_clk|    2.608|         |         |         |
+clk                  |    2.333|         |         |         |
+---------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 20.00 secs
+Total CPU time to Xst completion: 20.01 secs
+ 
+--> 
+
+Total memory usage is 461084 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

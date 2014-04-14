@@ -1,0 +1,4 @@
+work	"Decoder.vhd"
+work	"RAM.vhd"
+work	"RNG.vhd"
+work	"TopLevel.vhd"
