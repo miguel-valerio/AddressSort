@@ -30,3 +30,12 @@ map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -re
 par -w -intstyle ise -ol high -mt off TopLevel_map.ncd TopLevel.ncd TopLevel.pcf 
 trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml TopLevel.twx TopLevel.ncd -o TopLevel.twr TopLevel.pcf -ucf Nexys4_Master.ucf 
 bitgen -intstyle ise -f TopLevel.ut TopLevel.ncd 
+xst -intstyle ise -ifn "C:/Users/Miguel/Documents/GitHub/AddressSort/TopLevel.xst" -ofn "C:/Users/Miguel/Documents/GitHub/AddressSort/TopLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Miguel/Documents/GitHub/AddressSort/TopLevel.xst" -ofn "C:/Users/Miguel/Documents/GitHub/AddressSort/TopLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Miguel/Documents/GitHub/AddressSort/TopLevel.xst" -ofn "C:/Users/Miguel/Documents/GitHub/AddressSort/TopLevel.syr" 
+xst -intstyle ise -ifn "C:/Users/Miguel/Documents/GitHub/AddressSort/TopLevel.xst" -ofn "C:/Users/Miguel/Documents/GitHub/AddressSort/TopLevel.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys4_Master.ucf -p xc7a100t-csg324-3 TopLevel.ngc TopLevel.ngd  
+map -intstyle ise -p xc7a100t-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o TopLevel_map.ncd TopLevel.ngd TopLevel.pcf 
+par -w -intstyle ise -ol high -mt off TopLevel_map.ncd TopLevel.ncd TopLevel.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml TopLevel.twx TopLevel.ncd -o TopLevel.twr TopLevel.pcf -ucf Nexys4_Master.ucf 
+bitgen -intstyle ise -f TopLevel.ut TopLevel.ncd 

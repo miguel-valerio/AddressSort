@@ -3,13 +3,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: TopLevel.prj
@@ -105,19 +105,19 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\Clock_divider.vhd" into library work
+Parsing VHDL file "C:\Users\Miguel\Documents\GitHub\AddressSort\Clock_divider.vhd" into library work
 Parsing entity <clock_divider>.
 Parsing architecture <Behavioral> of entity <clock_divider>.
-Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\RNG.vhd" into library work
+Parsing VHDL file "C:\Users\Miguel\Documents\GitHub\AddressSort\RNG.vhd" into library work
 Parsing entity <RNG>.
 Parsing architecture <Behavioral> of entity <rng>.
-Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\RAM.vhd" into library work
+Parsing VHDL file "C:\Users\Miguel\Documents\GitHub\AddressSort\RAM.vhd" into library work
 Parsing entity <RAM>.
 Parsing architecture <Behavioral> of entity <ram>.
-Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\Decoder.vhd" into library work
+Parsing VHDL file "C:\Users\Miguel\Documents\GitHub\AddressSort\Decoder.vhd" into library work
 Parsing entity <Decoder>.
 Parsing architecture <Behavioral> of entity <decoder>.
-Parsing VHDL file "C:\Users\Miguel\Desktop\CR\projectv4\TopLevel.vhd" into library work
+Parsing VHDL file "C:\Users\Miguel\Documents\GitHub\AddressSort\TopLevel.vhd" into library work
 Parsing entity <TopLevel>.
 Parsing architecture <Behavioral> of entity <toplevel>.
 
@@ -140,15 +140,15 @@ Elaborating entity <clock_divider> (architecture <Behavioral>) with generics fro
 =========================================================================
 
 Synthesizing Unit <TopLevel>.
-    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\TopLevel.vhd".
+    Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\TopLevel.vhd".
         data_width = 10
         dec_size = 16
     Found 32-bit register for signal <count>.
     Found 6-bit register for signal <RADDR>.
     Found 16-bit register for signal <led>.
-    Found 32-bit adder for signal <count[31]_GND_5_o_add_1_OUT> created at line 73.
-    Found 6-bit adder for signal <RADDR[5]_GND_5_o_add_2_OUT> created at line 74.
-    Found 32-bit comparator lessequal for signal <GND_5_o_count[31]_LessThan_1_o> created at line 71
+    Found 32-bit adder for signal <count[31]_GND_5_o_add_1_OUT> created at line 74.
+    Found 6-bit adder for signal <RADDR[5]_GND_5_o_add_2_OUT> created at line 75.
+    Found 32-bit comparator lessequal for signal <GND_5_o_count[31]_LessThan_1_o> created at line 72
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  54 D-type flip-flop(s).
@@ -156,7 +156,7 @@ Synthesizing Unit <TopLevel>.
 Unit <TopLevel> synthesized.
 
 Synthesizing Unit <RNG>.
-    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\RNG.vhd".
+    Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\RNG.vhd".
         data_width = 10
         ndata = 216
     Found 10-bit register for signal <rand_temp>.
@@ -171,7 +171,7 @@ Synthesizing Unit <RNG>.
 Unit <RNG> synthesized.
 
 Synthesizing Unit <RAM>.
-    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\RAM.vhd".
+    Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\RAM.vhd".
         add_width = 10
     Found 1-bit register for signal <my_ram_ff_0>.
     Found 1-bit register for signal <my_ram_ff_1>.
@@ -1204,16 +1204,16 @@ Synthesizing Unit <RAM>.
 Unit <RAM> synthesized.
 
 Synthesizing Unit <Decoder>.
-    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\Decoder.vhd".
+    Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\Decoder.vhd".
         data_width = 10
-        size = 16
-    Found 16-bit register for signal <output>.
+        dec_size = 16
+    Found 16-bit register for signal <DOUT>.
     Summary:
 	inferred  16 D-type flip-flop(s).
 Unit <Decoder> synthesized.
 
 Synthesizing Unit <clock_divider>.
-    Related source file is "C:\Users\Miguel\Desktop\CR\projectv4\Clock_divider.vhd".
+    Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\Clock_divider.vhd".
         how_fast = 20
     Found 1-bit register for signal <divided_clk>.
     Found 21-bit register for signal <internal_clock>.
@@ -1402,7 +1402,7 @@ Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 clk                                | BUFGP                  | 1111  |
 c_divider/divided_clk              | BUFG                   | 54    |
-decoder/c_divider/divided_clk      | NONE(decoder/output_15)| 16    |
+decoder/c_divider/divided_clk      | NONE(decoder/DOUT_15)  | 16    |
 -----------------------------------+------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
@@ -1561,8 +1561,8 @@ clk                  |    2.333|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 20.00 secs
-Total CPU time to Xst completion: 20.01 secs
+Total REAL time to Xst completion: 22.00 secs
+Total CPU time to Xst completion: 22.16 secs
  
 --> 
 

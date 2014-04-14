@@ -32,48 +32,49 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity TopLevel is
-	generic(	data_width:	positive := 10;
-				dec_size:	positive := 16);
-	port(		clk:			in std_logic;
-				led:			out std_logic_vector(15 downto 0));
+	generic(	data_width:	positive := 10;																--Data Size
+				dec_size:	positive := 16);																--Number of Decoder Inputs
+	port(		clk:			in std_logic;																	--Clock
+				led:			out std_logic_vector(15 downto 0));										--Temporary Output
 end TopLevel;
 
 architecture Behavioral of TopLevel is
 
-	signal random_num:	std_logic_vector(data_width-1 downto 0) := (others => '0');
-	signal WE:				std_logic := '1';
-	signal EN:				std_logic := '0';
-	signal over:			std_logic := '0';
+	signal random_num:	std_logic_vector(data_width-1 downto 0) := (others => '0');		--RNG Output
+	signal WE:				std_logic := '1';																--RAM Write Enable
+	signal EN:				std_logic := '0';																--Decoder Enable
+	signal over:			std_logic := '0';																--Signals RAM populated with 216 values
 	signal RADDR:			std_logic_vector(data_width-5 downto 0) := (others => '0');		--latches warning
-	signal receive:		std_logic_vector(dec_size-1 downto 0);
-	signal data:			std_logic_vector(dec_size-1 downto 0);
-	signal dividedc:		std_logic;
+	signal receive:		std_logic_vector(dec_size-1 downto 0);									--RAM output
+	signal data:			std_logic_vector(dec_size-1 downto 0);									--Decoder output
+	signal dividedc:		std_logic;																		--Divided Clock
 						
 begin
 
-	generator:	entity work.RNG port map(clk, random_num, over);
+	generator:	entity work.RNG port map(clk, random_num, over);								--Random Number Generator
 	
-	ram:			entity work.RAM port map(clk, WE, random_num, RADDR, '1', receive);
+	ram:			entity work.RAM port map(clk, WE, random_num, RADDR, '1', receive);		--RAM
 	
-	decoder:		entity work.Decoder port map(clk, EN, receive, data);
+	decoder:		entity work.Decoder port map(clk, EN, receive, data);							--Decoder
 	
-	c_divider:	entity work.clock_divider port map (clk, '0', dividedc);
+	c_divider:	entity work.clock_divider port map (clk, '0', dividedc);						--Clock Divider
 	
-	WE <= '0' when over = '1' else '1';
+	WE <= '0' 	when over = '1' else '1';																--WE is disabled after 216 values 
+																													--beign written to the RAM
 	
-	EN <= '1' when over = '1' else '0';
-	
+	EN <= '1' 	when over = '1' else '0';																--Decoder is enabled after 216 values 
+																													--beign written to the RAM
 	process(dividedc)
-		variable count : integer := 0;
+		variable count : integer := 0;			--Block counter
 	begin
 		if rising_edge(dividedc) then
 			if over = '1' then
-				if count < 64 then
+				if count < 64 then					--TODO
 					led <= data;
 					count := count + 1;
-					RADDR <= RADDR + 1;	--latches warning 4 less significant bits not being used when incrementing + 16
-				end if;
-			end if;
+					RADDR <= RADDR + 1;				--Previously RADDR had data_width bits, however incrementing RADDR with 16 was
+				end if;									--generating latch warnings, so I decided to use the data_width - dec_size most
+			end if;										--significant bits, instead of the whole address
 		end if;
 	end process;
 
