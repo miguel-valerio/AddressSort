@@ -32,7 +32,7 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  15700 paths analyzed, 4397 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   3.817ns.
+ Minimum period is   3.828ns.
 --------------------------------------------------------------------------------
 
 Paths for end point c_divider/divided_clk (SLICE_X51Y90.AX), 1 path
@@ -68,14 +68,14 @@ Slack (setup path):     4.145ns (requirement - (data path - clock path skew + un
 
 --------------------------------------------------------------------------------
 
-Paths for end point decoder/c_divider/divided_clk (SLICE_X79Y56.DX), 1 path
+Paths for end point decoder/c_divider/divided_clk (SLICE_X87Y59.AX), 1 path
 --------------------------------------------------------------------------------
-Slack (setup path):     4.302ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     4.193ns (requirement - (data path - clock path skew + uncertainty))
   Source:               decoder/c_divider/internal_clock_20 (FF)
   Destination:          decoder/c_divider/divided_clk (FF)
   Requirement:          5.000ns
-  Data Path Delay:      0.619ns (Levels of Logic = 0)
-  Clock Path Skew:      -0.044ns (0.639 - 0.683)
+  Data Path Delay:      0.749ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.023ns (0.097 - 0.120)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP falling at 5.000ns
   Clock Uncertainty:    0.035ns
@@ -90,25 +90,25 @@ Slack (setup path):     4.302ns (requirement - (data path - clock path skew + un
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X81Y56.AQ      Tcko                  0.341   decoder/c_divider/internal_clock<20>
+    SLICE_X86Y59.AQ      Tcko                  0.341   decoder/c_divider/internal_clock<20>
                                                        decoder/c_divider/internal_clock_20
-    SLICE_X79Y56.DX      net (fanout=2)        0.253   decoder/c_divider/internal_clock<20>
-    SLICE_X79Y56.CLK     Tdick                 0.025   decoder/c_divider/divided_clk
+    SLICE_X87Y59.AX      net (fanout=2)        0.374   decoder/c_divider/internal_clock<20>
+    SLICE_X87Y59.CLK     Tdick                 0.034   decoder/c_divider/divided_clk
                                                        decoder/c_divider/divided_clk
     -------------------------------------------------  ---------------------------
-    Total                                      0.619ns (0.366ns logic, 0.253ns route)
-                                                       (59.1% logic, 40.9% route)
+    Total                                      0.749ns (0.375ns logic, 0.374ns route)
+                                                       (50.1% logic, 49.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point ram/_o2519 (SLICE_X39Y70.B1), 4 paths
+Paths for end point ram/_o2727 (SLICE_X40Y57.C2), 4 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     6.183ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     6.172ns (requirement - (data path - clock path skew + uncertainty))
   Source:               generator/rand_temp_0 (FF)
-  Destination:          ram/_o2519 (FF)
+  Destination:          ram/_o2727 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      3.681ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.101ns (1.029 - 1.130)
+  Data Path Delay:      3.756ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.037ns (0.573 - 0.610)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -119,30 +119,30 @@ Slack (setup path):     6.183ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: generator/rand_temp_0 to ram/_o2519
+  Maximum Data Path at Slow Process Corner: generator/rand_temp_0 to ram/_o2727
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X56Y54.DQ      Tcko                  0.393   generator/rand_temp<0>
+    SLICE_X49Y58.AQ      Tcko                  0.341   generator/rand_temp<0>
                                                        generator/rand_temp_0
-    SLICE_X67Y66.C1      net (fanout=10)       1.411   generator/rand_temp<0>
-    SLICE_X67Y66.C       Tilo                  0.097   ram/_o3383
-                                                       ram/_n0125[5]<3>1
-    SLICE_X39Y70.B1      net (fanout=64)       1.715   ram/_n0125[5]
-    SLICE_X39Y70.CLK     Tas                   0.065   ram/_o2523
-                                                       ram/_o2519_rstpot
-                                                       ram/_o2519
+    SLICE_X67Y63.D1      net (fanout=10)       1.316   generator/rand_temp<0>
+    SLICE_X67Y63.D       Tilo                  0.097   ram/_o3399
+                                                       ram/_n0012[10]<3>1
+    SLICE_X40Y57.C2      net (fanout=64)       1.937   ram/_n0012[10]
+    SLICE_X40Y57.CLK     Tas                   0.065   ram/_o2729
+                                                       ram/_o2727_rstpot
+                                                       ram/_o2727
     -------------------------------------------------  ---------------------------
-    Total                                      3.681ns (0.555ns logic, 3.126ns route)
-                                                       (15.1% logic, 84.9% route)
+    Total                                      3.756ns (0.503ns logic, 3.253ns route)
+                                                       (13.4% logic, 86.6% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     6.572ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     6.936ns (requirement - (data path - clock path skew + uncertainty))
   Source:               generator/rand_temp_1 (FF)
-  Destination:          ram/_o2519 (FF)
+  Destination:          ram/_o2727 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      3.289ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.104ns (1.029 - 1.133)
+  Data Path Delay:      2.938ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.091ns (1.039 - 1.130)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -153,30 +153,30 @@ Slack (setup path):     6.572ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: generator/rand_temp_1 to ram/_o2519
+  Maximum Data Path at Slow Process Corner: generator/rand_temp_1 to ram/_o2727
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X66Y57.AQ      Tcko                  0.393   generator/rand_temp<4>
+    SLICE_X67Y62.AQ      Tcko                  0.341   generator/rand_temp<4>
                                                        generator/rand_temp_1
-    SLICE_X67Y66.C2      net (fanout=9)        1.019   generator/rand_temp<1>
-    SLICE_X67Y66.C       Tilo                  0.097   ram/_o3383
-                                                       ram/_n0125[5]<3>1
-    SLICE_X39Y70.B1      net (fanout=64)       1.715   ram/_n0125[5]
-    SLICE_X39Y70.CLK     Tas                   0.065   ram/_o2523
-                                                       ram/_o2519_rstpot
-                                                       ram/_o2519
+    SLICE_X67Y63.D3      net (fanout=9)        0.498   generator/rand_temp<1>
+    SLICE_X67Y63.D       Tilo                  0.097   ram/_o3399
+                                                       ram/_n0012[10]<3>1
+    SLICE_X40Y57.C2      net (fanout=64)       1.937   ram/_n0012[10]
+    SLICE_X40Y57.CLK     Tas                   0.065   ram/_o2729
+                                                       ram/_o2727_rstpot
+                                                       ram/_o2727
     -------------------------------------------------  ---------------------------
-    Total                                      3.289ns (0.555ns logic, 2.734ns route)
-                                                       (16.9% logic, 83.1% route)
+    Total                                      2.938ns (0.503ns logic, 2.435ns route)
+                                                       (17.1% logic, 82.9% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     6.876ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     6.981ns (requirement - (data path - clock path skew + uncertainty))
   Source:               generator/rand_temp_3 (FF)
-  Destination:          ram/_o2519 (FF)
+  Destination:          ram/_o2727 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      2.985ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.104ns (1.029 - 1.133)
+  Data Path Delay:      2.893ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.091ns (1.039 - 1.130)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -187,109 +187,109 @@ Slack (setup path):     6.876ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: generator/rand_temp_3 to ram/_o2519
+  Maximum Data Path at Slow Process Corner: generator/rand_temp_3 to ram/_o2727
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X66Y57.CQ      Tcko                  0.393   generator/rand_temp<4>
+    SLICE_X67Y62.CQ      Tcko                  0.341   generator/rand_temp<4>
                                                        generator/rand_temp_3
-    SLICE_X67Y66.C4      net (fanout=9)        0.715   generator/rand_temp<3>
-    SLICE_X67Y66.C       Tilo                  0.097   ram/_o3383
-                                                       ram/_n0125[5]<3>1
-    SLICE_X39Y70.B1      net (fanout=64)       1.715   ram/_n0125[5]
-    SLICE_X39Y70.CLK     Tas                   0.065   ram/_o2523
-                                                       ram/_o2519_rstpot
-                                                       ram/_o2519
+    SLICE_X67Y63.D4      net (fanout=9)        0.453   generator/rand_temp<3>
+    SLICE_X67Y63.D       Tilo                  0.097   ram/_o3399
+                                                       ram/_n0012[10]<3>1
+    SLICE_X40Y57.C2      net (fanout=64)       1.937   ram/_n0012[10]
+    SLICE_X40Y57.CLK     Tas                   0.065   ram/_o2729
+                                                       ram/_o2727_rstpot
+                                                       ram/_o2727
     -------------------------------------------------  ---------------------------
-    Total                                      2.985ns (0.555ns logic, 2.430ns route)
-                                                       (18.6% logic, 81.4% route)
+    Total                                      2.893ns (0.503ns logic, 2.390ns route)
+                                                       (17.4% logic, 82.6% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point ram/_o2181 (SLICE_X63Y42.A6), 1 path
+Paths for end point ram/_o2791 (SLICE_X53Y59.C6), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.205ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               ram/_o2181 (FF)
-  Destination:          ram/_o2181 (FF)
+Slack (hold path):      0.153ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               generator/over (FF)
+  Destination:          ram/_o2791 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.205ns (Levels of Logic = 1)
+  Data Path Delay:      0.416ns (Levels of Logic = 1)
+  Clock Path Skew:      0.263ns (0.776 - 0.513)
+  Source Clock:         clk_BUFGP rising at 10.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: generator/over to ram/_o2791
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X48Y58.BQ      Tcko                  0.141   generator/over
+                                                       generator/over
+    SLICE_X53Y59.C6      net (fanout=1086)     0.322   generator/over
+    SLICE_X53Y59.CLK     Tah         (-Th)     0.047   ram/_o2793
+                                                       ram/_o2791_rstpot
+                                                       ram/_o2791
+    -------------------------------------------------  ---------------------------
+    Total                                      0.416ns (0.094ns logic, 0.322ns route)
+                                                       (22.6% logic, 77.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point ram/_o2793 (SLICE_X53Y59.D6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.156ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               generator/over (FF)
+  Destination:          ram/_o2793 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.419ns (Levels of Logic = 1)
+  Clock Path Skew:      0.263ns (0.776 - 0.513)
+  Source Clock:         clk_BUFGP rising at 10.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: generator/over to ram/_o2793
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X48Y58.BQ      Tcko                  0.141   generator/over
+                                                       generator/over
+    SLICE_X53Y59.D6      net (fanout=1086)     0.325   generator/over
+    SLICE_X53Y59.CLK     Tah         (-Th)     0.047   ram/_o2793
+                                                       ram/_o2793_rstpot
+                                                       ram/_o2793
+    -------------------------------------------------  ---------------------------
+    Total                                      0.419ns (0.094ns logic, 0.325ns route)
+                                                       (22.4% logic, 77.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point ram/_o2123 (SLICE_X57Y52.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.206ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               ram/_o2123 (FF)
+  Destination:          ram/_o2123 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.206ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
   Source Clock:         clk_BUFGP rising at 10.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: ram/_o2181 to ram/_o2181
+  Minimum Data Path at Fast Process Corner: ram/_o2123 to ram/_o2123
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X63Y42.AQ      Tcko                  0.141   ram/_o2187
-                                                       ram/_o2181
-    SLICE_X63Y42.A6      net (fanout=2)        0.110   ram/_o2181
-    SLICE_X63Y42.CLK     Tah         (-Th)     0.046   ram/_o2187
-                                                       ram/_o2181_rstpot
-                                                       ram/_o2181
+    SLICE_X57Y52.AQ      Tcko                  0.141   ram/_o2129
+                                                       ram/_o2123
+    SLICE_X57Y52.A6      net (fanout=2)        0.111   ram/_o2123
+    SLICE_X57Y52.CLK     Tah         (-Th)     0.046   ram/_o2129
+                                                       ram/_o2123_rstpot
+                                                       ram/_o2123
     -------------------------------------------------  ---------------------------
-    Total                                      0.205ns (0.095ns logic, 0.110ns route)
-                                                       (46.3% logic, 53.7% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point ram/_o2813 (SLICE_X51Y53.A6), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.207ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               ram/_o2813 (FF)
-  Destination:          ram/_o2813 (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.207ns (Levels of Logic = 1)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 10.000ns
-  Destination Clock:    clk_BUFGP rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path at Fast Process Corner: ram/_o2813 to ram/_o2813
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X51Y53.AQ      Tcko                  0.141   ram/_o2819
-                                                       ram/_o2813
-    SLICE_X51Y53.A6      net (fanout=2)        0.112   ram/_o2813
-    SLICE_X51Y53.CLK     Tah         (-Th)     0.046   ram/_o2819
-                                                       ram/_o2813_rstpot
-                                                       ram/_o2813
-    -------------------------------------------------  ---------------------------
-    Total                                      0.207ns (0.095ns logic, 0.112ns route)
-                                                       (45.9% logic, 54.1% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point ram/_o1797 (SLICE_X79Y37.A6), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.207ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               ram/_o1797 (FF)
-  Destination:          ram/_o1797 (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.207ns (Levels of Logic = 1)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 10.000ns
-  Destination Clock:    clk_BUFGP rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path at Fast Process Corner: ram/_o1797 to ram/_o1797
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X79Y37.AQ      Tcko                  0.141   ram/_o1803
-                                                       ram/_o1797
-    SLICE_X79Y37.A6      net (fanout=2)        0.112   ram/_o1797
-    SLICE_X79Y37.CLK     Tah         (-Th)     0.046   ram/_o1803
-                                                       ram/_o1797_rstpot
-                                                       ram/_o1797
-    -------------------------------------------------  ---------------------------
-    Total                                      0.207ns (0.095ns logic, 0.112ns route)
-                                                       (45.9% logic, 54.1% route)
+    Total                                      0.206ns (0.095ns logic, 0.111ns route)
+                                                       (46.1% logic, 53.9% route)
 
 --------------------------------------------------------------------------------
 
@@ -309,7 +309,7 @@ Slack: 9.000ns (period - (min low pulse limit / (low pulse / period)))
   Low pulse limit: 0.500ns (Tcl)
   Physical resource: decoder/c_divider/internal_clock<3>/CLK
   Logical resource: decoder/c_divider/internal_clock_0/CK
-  Location pin: SLICE_X81Y51.CLK
+  Location pin: SLICE_X86Y54.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 9.000ns (period - (min high pulse limit / (high pulse / period)))
@@ -318,7 +318,7 @@ Slack: 9.000ns (period - (min high pulse limit / (high pulse / period)))
   High pulse limit: 0.500ns (Tch)
   Physical resource: decoder/c_divider/internal_clock<3>/CLK
   Logical resource: decoder/c_divider/internal_clock_0/CK
-  Location pin: SLICE_X81Y51.CLK
+  Location pin: SLICE_X86Y54.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 
@@ -335,7 +335,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    3.817|         |    0.855|         |
+clk            |    3.828|         |    0.855|         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -347,13 +347,13 @@ Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 Constraints cover 15700 paths, 0 nets, and 4948 connections
 
 Design statistics:
-   Minimum period:   3.817ns{1}   (Maximum frequency: 261.986MHz)
+   Minimum period:   3.828ns{1}   (Maximum frequency: 261.233MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Mon Apr 14 16:34:59 2014 
+Analysis completed Tue Apr 15 00:24:51 2014 
 --------------------------------------------------------------------------------
 
 Trace Settings:

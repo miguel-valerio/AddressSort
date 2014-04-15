@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: TopLevel.prj
 
@@ -142,7 +142,7 @@ Elaborating entity <clock_divider> (architecture <Behavioral>) with generics fro
 Synthesizing Unit <TopLevel>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\TopLevel.vhd".
         data_width = 10
-        dec_size = 16
+        dec_size = 4
     Found 32-bit register for signal <count>.
     Found 6-bit register for signal <RADDR>.
     Found 16-bit register for signal <led>.
@@ -173,6 +173,7 @@ Unit <RNG> synthesized.
 Synthesizing Unit <RAM>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\RAM.vhd".
         add_width = 10
+        dec_size = 4
     Found 1-bit register for signal <my_ram_ff_0>.
     Found 1-bit register for signal <my_ram_ff_1>.
     Found 1-bit register for signal <my_ram_ff_2>.
@@ -1197,7 +1198,7 @@ Synthesizing Unit <RAM>.
     Found 1-bit register for signal <my_ram_ff_1021>.
     Found 1-bit register for signal <my_ram_ff_1022>.
     Found 1-bit register for signal <my_ram_ff_1023>.
-    Found 16-bit 64-to-1 multiplexer for signal <DOUT> created at line 34.
+    Found 16-bit 64-to-1 multiplexer for signal <DOUT> created at line 42.
     Summary:
 	inferred 1024 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
@@ -1332,21 +1333,22 @@ Top Level Output File Name         : TopLevel.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1851
+# BELS                             : 1854
 #      GND                         : 1
-#      INV                         : 6
+#      INV                         : 5
 #      LUT1                        : 102
-#      LUT3                        : 11
-#      LUT4                        : 1086
-#      LUT5                        : 20
+#      LUT2                        : 2
+#      LUT3                        : 10
+#      LUT4                        : 1087
+#      LUT5                        : 21
 #      LUT6                        : 402
-#      MUXCY                       : 116
+#      MUXCY                       : 117
 #      VCC                         : 1
 #      XORCY                       : 106
 # FlipFlops/Latches                : 1181
-#      FD                          : 1071
+#      FD                          : 1072
 #      FD_1                        : 2
-#      FDE                         : 66
+#      FDE                         : 65
 #      FDR                         : 42
 # Clock Buffers                    : 2
 #      BUFG                        : 1
@@ -1362,14 +1364,14 @@ Selected Device : 7a100tcsg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:            1181  out of  126800     0%  
- Number of Slice LUTs:                 1627  out of  63400     2%  
-    Number used as Logic:              1627  out of  63400     2%  
+ Number of Slice LUTs:                 1629  out of  63400     2%  
+    Number used as Logic:              1629  out of  63400     2%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1634
-   Number with an unused Flip Flop:     453  out of   1634    27%  
-   Number with an unused LUT:             7  out of   1634     0%  
-   Number of fully used LUT-FF pairs:  1174  out of   1634    71%  
+ Number of LUT Flip Flop pairs used:   1636
+   Number with an unused Flip Flop:     455  out of   1636    27%  
+   Number with an unused LUT:             7  out of   1636     0%  
+   Number of fully used LUT-FF pairs:  1174  out of   1636    71%  
    Number of unique control sets:         6
 
 IO Utilization: 
@@ -1414,7 +1416,7 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 2.571ns (Maximum Frequency: 388.984MHz)
+   Minimum period: 2.576ns (Maximum Frequency: 388.139MHz)
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: 0.645ns
    Maximum combinational path delay: No path found
@@ -1454,10 +1456,10 @@ Delay:               2.358ns (Levels of Logic = 8)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'c_divider/divided_clk'
-  Clock period: 2.571ns (frequency: 388.984MHz)
-  Total number of paths / destination ports: 3299 / 63
+  Clock period: 2.576ns (frequency: 388.139MHz)
+  Total number of paths / destination ports: 3731 / 62
 -------------------------------------------------------------------------
-Delay:               2.571ns (Levels of Logic = 34)
+Delay:               2.576ns (Levels of Logic = 34)
   Source:            count_0 (FF)
   Destination:       count_31 (FF)
   Source Clock:      c_divider/divided_clk rising
@@ -1467,7 +1469,7 @@ Delay:               2.571ns (Levels of Logic = 34)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.361   0.284  count_0 (count_0)
+     FD:C->Q               3   0.361   0.289  count_0 (count_0)
      INV:I->O              1   0.113   0.000  Mcount_count_lut<0>_INV_0 (Mcount_count_lut<0>)
      MUXCY:S->O            1   0.353   0.000  Mcount_count_cy<0> (Mcount_count_cy<0>)
      MUXCY:CI->O           1   0.023   0.000  Mcount_count_cy<1> (Mcount_count_cy<1>)
@@ -1504,8 +1506,8 @@ Delay:               2.571ns (Levels of Logic = 34)
      LUT3:I2->O            1   0.097   0.000  count_31_dpot (count_31_dpot)
      FDE:D                     0.008          count_31
     ----------------------------------------
-    Total                      2.571ns (1.992ns logic, 0.579ns route)
-                                       (77.5% logic, 22.5% route)
+    Total                      2.576ns (1.992ns logic, 0.584ns route)
+                                       (77.3% logic, 22.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'c_divider/divided_clk'
@@ -1536,7 +1538,7 @@ Clock to Setup on destination clock c_divider/divided_clk
                              | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                 |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------------+---------+---------+---------+---------+
-c_divider/divided_clk        |    2.571|         |         |         |
+c_divider/divided_clk        |    2.576|         |         |         |
 clk                          |    1.356|         |         |         |
 decoder/c_divider/divided_clk|    1.022|         |         |         |
 -----------------------------+---------+---------+---------+---------+
@@ -1561,12 +1563,12 @@ clk                  |    2.333|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 22.00 secs
-Total CPU time to Xst completion: 22.16 secs
+Total REAL time to Xst completion: 20.00 secs
+Total CPU time to Xst completion: 19.67 secs
  
 --> 
 
-Total memory usage is 461084 kilobytes
+Total memory usage is 461020 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

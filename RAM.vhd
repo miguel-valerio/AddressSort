@@ -32,33 +32,28 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 --use UNISIM.VComponents.all;
 
 entity RAM is
-	generic	(	add_width:	positive := 10);												--Nº of RAM Address Bits
+	generic	(	add_width:	positive := 10;												--Nº of RAM Address Bits
+					dec_size:	positive := 4);												--Nº of Decoder Input Bits
 	port		(	clk:			in std_logic;													--Clock
 					WE:			in std_logic;													--Write Enable
 					WADD:			in std_logic_vector(add_width-1 downto 0);			--Write Address
-					RADD:			in std_logic_vector(add_width-5 downto 0);			--Read Address (refer to TopLevel for warning information)
+					RADD:			in std_logic_vector(add_width-dec_size-1 downto 0);--Read Address (no need to use offset when reading)
 					DIN:			in std_logic;													--Data In
-					DOUT:			out std_logic_vector(15 downto 0));						--Data Out
+					DOUT:			out std_logic_vector(2**dec_size-1 downto 0));		--Data Out
 end RAM;
 
 architecture Behavioral of RAM is
 
-	type offset			is array (15 downto 0) of std_logic;							--Address to write inside the block
-	type blk 			is array (63 downto 0) of offset;								--//TODO
-	signal my_ram: 	blk;																		--RAM is a set of blocks
+	type blk				is array (2**(add_width-dec_size)-1 downto 0)				--Block address
+							of std_logic_vector((2**dec_size)-1 downto 0);
+	signal my_ram:		blk;																		--RAM is a set of blocks
 	signal w_blk: 		std_logic_vector(add_width-1 downto 4);						--Block to write
 	signal w_offset:	std_logic_vector(3 downto 0);										--Offset in block to be written
-	signal r_blk:	 	std_logic_vector(add_width-1 downto 4);						--Block to read
-	signal r_offset:	std_logic_vector(3 downto 0);										--Offset in block to be read
-	signal temp_radd:	std_logic_vector(add_width-1 downto 0);						--Temporary Read Address (refer to TopLevel for warning information)
 
 begin
 
-	temp_radd 	<= RADD(add_width-5 downto 0) & "0000";								--Shift Left 4 (refer to TopLevel for warning information)
 	w_blk 		<= WADD(add_width-1 downto 4);											--Block to write
 	w_offset		<= WADD(3 downto 0);															--Offset in block to be written
-	r_blk 		<= temp_radd(add_width-1 downto 4);										--Block to read
-	r_offset		<= temp_radd(3 downto 0);													--Offset in block to be read
 
 	process(clk)
 	begin
@@ -68,16 +63,8 @@ begin
 			end if;
 		end if;
 	end process;
-	
-	DOUT <= 	my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 15) & my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 14) &
-				my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 13) & my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 12) &
-				my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 11) & my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 10) &
-				my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 9)  & my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 8)  &
-				my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 7)  & my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 6)  &
-				my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 5)  & my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 4)  &
-				my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 3)  & my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 2)  &
-				my_ram(conv_integer(r_blk))(conv_integer(r_offset) + 1)  & my_ram(conv_integer(r_blk))(conv_integer(r_offset));
-																										--Read
+																										
+	DOUT <=	my_ram(conv_integer(RADD));													--Read
 
 end Behavioral;
 
