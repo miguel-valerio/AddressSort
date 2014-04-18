@@ -1,5 +1,5 @@
-set -tmpdir "C:/Users/Miguel/Desktop/CR/projectv4/xst/projnav.tmp"
-set -xsthdpdir "C:/Users/Miguel/Desktop/CR/projectv4/xst"
+set -tmpdir "C:/Users/Miguel/Documents/GitHub/AddressSort/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Miguel/Documents/GitHub/AddressSort/xst"
 run -compileonly yes
 -p xc7a100t-3-csg324
 -top Decoder

@@ -47,7 +47,7 @@ begin
 		variable count : integer := 0;
       begin
       if rising_edge(clk) then
-			if (count < ndata) then
+			if (count <= ndata) then
 				over <= '0';
 				temp := rand_temp(data_width-1) xor rand_temp(data_width-2);
 				rand_temp(data_width-1 downto 1) := rand_temp(data_width-2 downto 0);
