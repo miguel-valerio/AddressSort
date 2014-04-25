@@ -44,10 +44,10 @@ begin
 	process(clk)
 		variable rand_temp : std_logic_vector(data_width-1 downto 0):=(data_width-1 => '1',others => '0');
       variable temp : std_logic := '0';
-		variable count : integer := 0;
+		variable count : integer range 0 to ndata:= 0;
       begin
       if rising_edge(clk) then
-			if (count <= ndata) then
+			if (count < ndata) then
 				over <= '0';
 				temp := rand_temp(data_width-1) xor rand_temp(data_width-2);
 				rand_temp(data_width-1 downto 1) := rand_temp(data_width-2 downto 0);

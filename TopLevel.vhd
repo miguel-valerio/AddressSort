@@ -38,7 +38,8 @@ entity TopLevel is
 				vgaBlue		:out std_logic_vector(3 downto 0);
 				vgaGreen		:out std_logic_vector(3 downto 0);
 				Hsync			:out std_logic;
-				Vsync			:out std_logic);
+				Vsync			:out std_logic;
+				led			:out std_logic);
 end TopLevel;
 
 architecture Behavioral of TopLevel is
@@ -51,10 +52,10 @@ architecture Behavioral of TopLevel is
 	signal ram_out			:std_logic;																			--RAM output
 --	signal data				:std_logic_vector(2**dec_size-1 downto 0);								--Decoder output
 	signal clk25			:std_logic;																			--25MHz Clock
-	signal wadd0			:std_logic_vector(11 downto 0);
-	signal wadd1			:std_logic_vector(11 downto 0);
-	signal wadd2			:std_logic_vector(11 downto 0);
-	signal wadd3			:std_logic_vector(11 downto 0);
+	signal wadd0			:std_logic_vector(9 downto 0);
+	signal wadd1			:std_logic_vector(9 downto 0);
+	signal wadd2			:std_logic_vector(9 downto 0);
+	signal wadd3			:std_logic_vector(9 downto 0);
 	signal dout0			:std_logic_vector(4 downto 0);
 	signal dout1			:std_logic_vector(4 downto 0);
 	signal dout2			:std_logic_vector(4 downto 0);
@@ -68,6 +69,8 @@ architecture Behavioral of TopLevel is
 	signal rom_line		:std_logic_vector(3 downto 0);
 	signal rom_column		:std_logic_vector(2 downto 0);
 	signal rom_data		:std_logic;
+	signal vgaen			:std_logic := '0';
+	signal done				:std_logic := '0';
 	
 begin
 
@@ -77,10 +80,12 @@ begin
 	vgaRed <= r;
 	vgaGreen <= g;
 	vgaBlue <= b;
+	
+	led <= done;
 
 	cgenerator	:entity work.ClockGenerator port map (clk => clk, clk25 => clk25);					--25MHz Clock Generator
 
-	generator	:entity work.RNG port map	(clk => clk, random_num => random_num,						--Random Number Generator
+	generator	:entity work.RNG port map	(clk => clk25, random_num => random_num,						--Random Number Generator
 														over => over);
 	
 	ram			:entity work.RAM port map	(clk => clk	, we => we	, wadd => random_num,			--RAM
@@ -91,7 +96,7 @@ begin
 															wadd2 => wadd2	, wadd3 => wadd3	, dout0 => dout0,
 															dout1 => dout1	, dout2 => dout2	, dout3 => dout3);
 	
-	vgaram		:entity work.VGARAM port map	(clk => clk		, we => '1'			, wadd0 => wadd0, --VGARAM
+	vgaram		:entity work.VGARAM port map	(clk => clk		, we => vgaen		, wadd0 => wadd0, --VGARAM
 															wadd1 => wadd1	, wadd2 => wadd2	, wadd3 => wadd3,
 															din0 => dout0	, din1 => dout1	, din2 => dout2,
 															din3 => dout3	, radd => ram_add	, dout => ram_data);
@@ -103,7 +108,8 @@ begin
 															red => r				, green => g		, blue => b,
 															ram_add => ram_add, ram_data => ram_data, 
 															rom_add => rom_add, rom_line => rom_line, 
-															rom_column => rom_column, rom_data => rom_data);
+															rom_column => rom_column, rom_data => rom_data,
+															clk => clk);
 														
 	pixel			:entity work.PixelROM port map(char => rom_add		, line => rom_line, 
 															column => rom_column	, data => rom_data);
@@ -111,8 +117,11 @@ begin
 	we <= '0' 	when over = '1' else '1';			--we is disabled after 216 values 
 																--beign written to the RAM
 																													
-	en <= '1' 	when over = '1' else '0';			--Decoder is enabled after 216 values 
+	en <= '1' 	when (over = '1' and done = '0') else '0';			--Decoder is enabled after 216 values 
 																--beign written to the RAM
+																
+	vgaen <= '1' when over = '1' else '0';
+	
 	process(clk)	
 		variable count : integer := 0;								--radd Incrementer
 	begin
@@ -120,6 +129,9 @@ begin
 			if over = '1' then
 				if conv_integer(radd) < (2**data_width) then						--Max nº of blocks
 					radd <= radd + 1;
+				end if;
+				if radd = "1111111111" then
+					done <= '1';
 				end if;
 			end if;
 		end if;

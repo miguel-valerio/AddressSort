@@ -48,10 +48,10 @@ architecture Behavioral of VGASync is
 	constant HFP	:integer := 704;				--Horizontal Front Porch End
 	constant HMAX	:integer := 800;				--Horizontal Single Pulse End
 	
-	constant VBP	:integer := 29;				--Vertical Back Porch End
-	constant VAV	:integer := 509;				--Vertical Active Video End
-	constant VFP	:integer := 519;				--Vertical Front Porch End
-	constant VMAX	:integer := 521;				--Vertical Single Pulse End
+	constant VBP	:integer := 33;				--Vertical Back Porch End
+	constant VAV	:integer := 513;				--Vertical Active Video End
+	constant VFP	:integer := 523;				--Vertical Front Porch End
+	constant VMAX	:integer := 525;				--Vertical Single Pulse End
 	
 	constant SPP	:std_logic := '0';			--Synch Pulse Polarity (Negative)
 	
