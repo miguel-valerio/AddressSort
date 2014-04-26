@@ -17,7 +17,7 @@ end OnePortRAM;
 architecture Behavioral of OnePortRAM is
 
 	type ram is array (2**data_size-1 downto 0) of std_logic_vector(vga_dout_size-1 downto 0);
-	signal my_ram : ram := (others => (others => '0'));
+	signal my_ram : ram := (others => "10000");
 
 begin
 

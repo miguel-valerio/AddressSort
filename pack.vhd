@@ -20,14 +20,14 @@ package pack is
 -- procedure <procedure_name> (<type_declaration> <constant_name>	: in <type_declaration>);
 --
 
-	constant data_size		:positive := 10;
+	constant data_size		:positive := 16;
 	
 	constant ndata				:positive := 216;
 	
-	constant vga_wadd_size	:positive := 10;
-	constant vga_din_size	:positive := 5;
-	constant vga_radd_size	:positive := 12;
-	constant vga_dout_size	:positive := 5;
+	constant vga_wadd_size	:positive := 8;
+	constant vga_din_size	:positive := 30;
+	constant vga_radd_size	:positive := 8;
+	constant vga_dout_size	:positive := 30;
 	
 	constant hcount_size		:positive := 11;
 	constant vcount_size		:positive := 11;
@@ -47,7 +47,7 @@ package pack is
 	constant rom_line_size	:positive := 4;
 	constant rom_column_size:positive := 3;
 	
-	constant vga_add_size	:positive := 12;
+	constant vga_add_size	:positive := 8;
 	
 	constant vga_ram_add		:positive := 10;
 

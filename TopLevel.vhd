@@ -24,14 +24,8 @@ architecture Behavioral of TopLevel is
 	signal radd				:std_logic_vector(data_size-1 downto 0) := (others => '0');		--Read Addr
 	signal ram_out			:std_logic;																			--RAM output
 	signal clk25			:std_logic;																			--25MHz Clock
-	signal wadd0			:std_logic_vector(vga_wadd_size-1 downto 0);
-	signal wadd1			:std_logic_vector(vga_wadd_size-1 downto 0);
-	signal wadd2			:std_logic_vector(vga_wadd_size-1 downto 0);
-	signal wadd3			:std_logic_vector(vga_wadd_size-1 downto 0);
-	signal dout0			:std_logic_vector(vga_din_size-1 downto 0);
-	signal dout1			:std_logic_vector(vga_din_size-1 downto 0);
-	signal dout2			:std_logic_vector(vga_din_size-1 downto 0);
-	signal dout3			:std_logic_vector(vga_din_size-1 downto 0);
+	signal wadd				:std_logic_vector(vga_wadd_size-1 downto 0);
+	signal dout				:std_logic_vector(vga_din_size-1 downto 0);
 	signal hs, vs, blank	:std_logic;
 	signal hcount			:std_logic_vector(hcount_size-1 downto 0);
 	signal vcount			:std_logic_vector(vcount_size-1 downto 0);
@@ -65,14 +59,10 @@ begin
 														radd => radd, din => '1', dout => ram_out);	
 	
 	decoder		:entity work.Decoder	port map	(clk => clk		, en => en			, radd => radd, 	--Decoder
-															din => ram_out	, wadd0 => wadd0	, wadd1 => wadd1,
-															wadd2 => wadd2	, wadd3 => wadd3	, dout0 => dout0,
-															dout1 => dout1	, dout2 => dout2	, dout3 => dout3);
+															din => ram_out	, wadd => wadd, dout => dout);
 	
-	vgaram		:entity work.VGARAM port map	(clk => clk		, we => vgaen		, wadd0 => wadd0, --VGARAM
-															wadd1 => wadd1	, wadd2 => wadd2	, wadd3 => wadd3,
-															din0 => dout0	, din1 => dout1	, din2 => dout2,
-															din3 => dout3	, radd => ram_add	, dout => ram_data);
+	vgaram		:entity work.VGARAM port map	(clk => clk		, we => vgaen		, wadd => wadd, --VGARAM
+															din => dout	, radd => ram_add	, dout => ram_data);
 	
 	vgasync		:entity work.VGASync port map	(reset => '0'	, clk => clk25		, hs => hs, vs => vs,
 															blank => blank	, hcount => hcount, vcount => vcount);

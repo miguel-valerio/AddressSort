@@ -19,7 +19,7 @@ begin
 		variable count : integer range 0 to ndata:= 0;
       begin
       if rising_edge(clk) then
-			if (count < ndata) then
+			if (count < ndata-1) then
 				over <= '0';
 				temp := rand_temp(data_size-1) xor rand_temp(data_size-2);
 				rand_temp(data_size-1 downto 1) := rand_temp(data_size-2 downto 0);

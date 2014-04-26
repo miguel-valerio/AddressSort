@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use work.pack.all;
 
 entity PixelROM is
-	port(		char			:in std_logic_vector(vga_din_size-1 downto 0);		--selects 1 of the 18 chars
+	port(		char			:in std_logic_vector(rom_radd_size-1 downto 0);		--selects 1 of the 18 chars
 				line			:in std_logic_vector(rom_line_size-1 downto 0);		--selects 1 of the 12 lines
 				column		:in std_logic_vector(rom_column_size-1 downto 0);	--selects 1 of the 8 columns
 				data			:out std_logic);											--returns 1 pixel

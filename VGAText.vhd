@@ -23,11 +23,14 @@ end VGAText;
 
 architecture Behavioral of VGAText is
 	
-	signal hc			:std_logic_vector(7 downto 0) := (others => '0');
-	signal vc			:std_logic_vector(7 downto 0) := (others => '0');
+--	signal hc			:std_logic_vector(7 downto 0) := (others => '0');
+--	signal vc			:std_logic_vector(7 downto 0) := (others => '0');
 	
 	signal h				:integer range 0 to 7:= 0;
 	signal v				:integer range 0 to 11:= 0;
+	
+	signal vc			:integer := 0;
+	signal hc			:integer := 0;
 
 begin
 
@@ -37,19 +40,30 @@ begin
 	red <= (others => '0');
 	blue <= (others => '0');
 
-	ram_add <= conv_std_logic_vector((conv_integer(hcount-HBP)/8) + (conv_integer(vcount-VBP)/12*80), vga_radd_size);
-	rom_add <= ram_data;
+	ram_add <= conv_std_logic_vector((conv_integer(hcount-HBP)/48) + (conv_integer(vcount-VBP)/12*14), vga_radd_size);
+	rom_add <= ram_data(4+hc downto hc);
 	rom_line <= conv_std_logic_vector(v, rom_line_size);
 	rom_column <= conv_std_logic_vector(8-h, rom_column_size);
 	
+--	process(clk)
+--	begin
+--		if rising_edge(clk) then
+--			if h = 0 then
+--					hc <= hc + 1;
+--			end if;
+--			if v = 0 then
+--				vc <= vc + 1;
+--			end if;
+--		end if;
+--	end process;
+
 	process(clk)
 	begin
 		if rising_edge(clk) then
-			if h = 0 then
-					hc <= hc + 1;
-			end if;
-			if v = 0 then
-				vc <= vc + 1;
+			if hc = 30 then
+				hc <= 0;
+			elsif h = 0 then
+				hc <= hc+5;
 			end if;
 		end if;
 	end process;

@@ -108,9 +108,6 @@ Slice Utilization Ratio Delta      : 5
 Parsing VHDL file "C:\Users\Miguel\Documents\GitHub\AddressSort\pack.vhd" into library work
 Parsing package <pack>.
 Parsing package body <pack>.
-Parsing VHDL file "C:\Users\Miguel\Documents\GitHub\AddressSort\OnePortRAM.vhd" into library work
-Parsing entity <OnePortRAM>.
-Parsing architecture <Behavioral> of entity <oneportram>.
 Parsing VHDL file "C:\Users\Miguel\Documents\GitHub\AddressSort\VGAText.vhd" into library work
 Parsing entity <VGAText>.
 Parsing architecture <Behavioral> of entity <vgatext>.
@@ -155,8 +152,6 @@ Elaborating entity <Decoder> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <VGARAM> (architecture <Behavioral>) from library <work>.
 
-Elaborating entity <OnePortRAM> (architecture <Behavioral>) from library <work>.
-
 Elaborating entity <VGASync> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <VGAText> (architecture <Behavioral>) from library <work>.
@@ -170,11 +165,11 @@ Elaborating entity <PixelROM> (architecture <Behavioral>) from library <work>.
 Synthesizing Unit <TopLevel>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\TopLevel.vhd".
     Found 1-bit register for signal <done>.
-    Found 10-bit register for signal <radd>.
-    Found 10-bit adder for signal <radd[9]_GND_6_o_add_3_OUT> created at line 104.
+    Found 16-bit register for signal <radd>.
+    Found 16-bit adder for signal <radd[15]_GND_6_o_add_3_OUT> created at line 94.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  11 D-type flip-flop(s).
+	inferred  17 D-type flip-flop(s).
 Unit <TopLevel> synthesized.
 
 Synthesizing Unit <ClockGenerator>.
@@ -192,65 +187,72 @@ Unit <ClockGenerator> synthesized.
 
 Synthesizing Unit <RNG>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\RNG.vhd".
-    Found 10-bit register for signal <rand_temp>.
+    Found 16-bit register for signal <rand_temp>.
     Found 8-bit register for signal <count>.
     Found 1-bit register for signal <over>.
     Found 8-bit adder for signal <count[7]_GND_8_o_add_1_OUT> created at line 27.
     Found 8-bit comparator greater for signal <count[7]_PWR_8_o_LessThan_1_o> created at line 22
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  19 D-type flip-flop(s).
+	inferred  25 D-type flip-flop(s).
 	inferred   1 Comparator(s).
 Unit <RNG> synthesized.
 
 Synthesizing Unit <RAM>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\RAM.vhd".
-    Found 1024x1-bit dual-port RAM <Mram_my_ram> for signal <my_ram>.
+    Found 65536x1-bit dual-port RAM <Mram_my_ram> for signal <my_ram>.
     Summary:
 	inferred   1 RAM(s).
 Unit <RAM> synthesized.
 
 Synthesizing Unit <Decoder>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\Decoder.vhd".
-    Register <wadd3> equivalent to <wadd0> has been removed
-    Register <wadd2> equivalent to <wadd0> has been removed
-    Register <wadd1> equivalent to <wadd0> has been removed
-    Found 5-bit register for signal <dout1>.
-    Found 5-bit register for signal <dout2>.
-    Found 1-bit register for signal <dout3<3>>.
-    Found 1-bit register for signal <dout3<2>>.
-    Found 1-bit register for signal <dout3<1>>.
-    Found 10-bit register for signal <temp_add>.
-    Found 10-bit register for signal <wadd0>.
-    Found 5-bit register for signal <dout0>.
-    Found 10-bit adder for signal <temp_add[9]_GND_10_o_add_0_OUT> created at line 39.
+    Found 1-bit register for signal <dout<27>>.
+    Found 1-bit register for signal <dout<26>>.
+    Found 1-bit register for signal <dout<24>>.
+    Found 1-bit register for signal <dout<23>>.
+    Found 1-bit register for signal <dout<22>>.
+    Found 1-bit register for signal <dout<21>>.
+    Found 1-bit register for signal <dout<20>>.
+    Found 1-bit register for signal <dout<19>>.
+    Found 1-bit register for signal <dout<18>>.
+    Found 1-bit register for signal <dout<17>>.
+    Found 1-bit register for signal <dout<16>>.
+    Found 1-bit register for signal <dout<15>>.
+    Found 1-bit register for signal <dout<14>>.
+    Found 1-bit register for signal <dout<13>>.
+    Found 1-bit register for signal <dout<12>>.
+    Found 1-bit register for signal <dout<11>>.
+    Found 1-bit register for signal <dout<10>>.
+    Found 1-bit register for signal <dout<9>>.
+    Found 1-bit register for signal <dout<8>>.
+    Found 1-bit register for signal <dout<7>>.
+    Found 1-bit register for signal <dout<6>>.
+    Found 1-bit register for signal <dout<5>>.
+    Found 1-bit register for signal <dout<4>>.
+    Found 1-bit register for signal <dout<3>>.
+    Found 1-bit register for signal <dout<2>>.
+    Found 1-bit register for signal <dout<1>>.
+    Found 1-bit register for signal <dout<0>>.
+    Found 8-bit register for signal <temp_add>.
+    Found 8-bit register for signal <wadd>.
+    Found 1-bit register for signal <dout<28>>.
+    Found 8-bit adder for signal <temp_add[7]_GND_10_o_add_0_OUT> created at line 61.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  38 D-type flip-flop(s).
+	inferred  44 D-type flip-flop(s).
 	inferred   2 Multiplexer(s).
 Unit <Decoder> synthesized.
 
 Synthesizing Unit <VGARAM>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\VGARAM.vhd".
-    Found 5-bit register for signal <dout>.
-    Found 10-bit register for signal <radd2>.
-    Found 10-bit register for signal <radd1>.
-    Found 10-bit register for signal <radd0>.
-    Found 10-bit register for signal <radd3>.
-    Found 5-bit 4-to-1 multiplexer for signal <dout0[4]_dout3[4]_mux_6_OUT> created at line 52.
-    Summary:
-	inferred  45 D-type flip-flop(s).
-	inferred   1 Multiplexer(s).
-Unit <VGARAM> synthesized.
-
-Synthesizing Unit <OnePortRAM>.
-    Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\OnePortRAM.vhd".
-    Found 1024x5-bit dual-port RAM <Mram_my_ram> for signal <my_ram>.
-    Found 5-bit register for signal <dout>.
+WARNING:Xst:3015 - Contents of array <my_ram> may be accessed with an index that does not cover the full array size or with a negative index. The RAM size is reduced to the index upper access or for only positive index values.
+    Found 256x30-bit dual-port RAM <Mram_my_ram> for signal <my_ram>.
+    Found 30-bit register for signal <dout>.
     Summary:
 	inferred   1 RAM(s).
-	inferred   5 D-type flip-flop(s).
-Unit <OnePortRAM> synthesized.
+	inferred  30 D-type flip-flop(s).
+Unit <VGARAM> synthesized.
 
 Synthesizing Unit <VGASync>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\VGASync.vhd".
@@ -259,15 +261,15 @@ Synthesizing Unit <VGASync>.
     Found 1-bit register for signal <hs>.
     Found 1-bit register for signal <vs>.
     Found 1-bit register for signal <blank>.
-    Found 11-bit adder for signal <hcounter[10]_GND_13_o_add_7_OUT> created at line 42.
-    Found 11-bit adder for signal <vcounter[10]_GND_13_o_add_13_OUT> created at line 56.
-    Found 11-bit comparator greater for signal <GND_13_o_hcounter[10]_LessThan_3_o> created at line 32
+    Found 11-bit adder for signal <hcounter[10]_GND_12_o_add_7_OUT> created at line 42.
+    Found 11-bit adder for signal <vcounter[10]_GND_12_o_add_13_OUT> created at line 56.
+    Found 11-bit comparator greater for signal <GND_12_o_hcounter[10]_LessThan_3_o> created at line 32
     Found 11-bit comparator lessequal for signal <n0005> created at line 32
-    Found 11-bit comparator greater for signal <GND_13_o_vcounter[10]_LessThan_5_o> created at line 32
+    Found 11-bit comparator greater for signal <GND_12_o_vcounter[10]_LessThan_5_o> created at line 32
     Found 11-bit comparator lessequal for signal <n0008> created at line 32
-    Found 11-bit comparator greater for signal <GND_13_o_hcounter[10]_LessThan_19_o> created at line 65
+    Found 11-bit comparator greater for signal <GND_12_o_hcounter[10]_LessThan_19_o> created at line 65
     Found 11-bit comparator lessequal for signal <n0025> created at line 65
-    Found 11-bit comparator greater for signal <GND_13_o_vcounter[10]_LessThan_21_o> created at line 76
+    Found 11-bit comparator greater for signal <GND_12_o_vcounter[10]_LessThan_21_o> created at line 76
     Found 11-bit comparator lessequal for signal <n0031> created at line 76
     Summary:
 	inferred   2 Adder/Subtractor(s).
@@ -277,31 +279,36 @@ Unit <VGASync> synthesized.
 
 Synthesizing Unit <VGAText>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\VGAText.vhd".
-    Found 12-bit subtractor for signal <n0029> created at line 40.
-    Found 18-bit adder for signal <n0023> created at line 40.
-    Found 11-bit subtractor for signal <GND_15_o_GND_15_o_sub_7_OUT<10:0>> created at line 40.
+    Found 32-bit register for signal <hc>.
+    Found 15-bit adder for signal <n0053> created at line 43.
+    Found 32-bit adder for signal <n0064> created at line 44.
+    Found 32-bit adder for signal <hc[31]_GND_14_o_add_47_OUT> created at line 66.
+    Found 11-bit subtractor for signal <GND_14_o_GND_14_o_sub_6_OUT<10:0>> created at line 43.
+    Found 11-bit subtractor for signal <GND_14_o_GND_14_o_sub_8_OUT<10:0>> created at line 43.
     Found 3-bit subtractor for signal <rom_column> created at line 21.
-    Found 11x7-bit multiplier for signal <n0045> created at line 40.
+    Found 11x4-bit multiplier for signal <n0103> created at line 43.
+    Found 5-bit 26-to-1 multiplexer for signal <rom_add> created at line 8.
     Summary:
 	inferred   1 Multiplier(s).
-	inferred   4 Adder/Subtractor(s).
-	inferred   1 Multiplexer(s).
+	inferred   6 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
 Unit <VGAText> synthesized.
 
 Synthesizing Unit <rem_11u_4u>.
     Related source file is "".
-    Found 15-bit adder for signal <GND_16_o_b[3]_add_1_OUT> created at line 0.
-    Found 14-bit adder for signal <GND_16_o_b[3]_add_3_OUT> created at line 0.
-    Found 13-bit adder for signal <GND_16_o_b[3]_add_5_OUT> created at line 0.
-    Found 12-bit adder for signal <GND_16_o_b[3]_add_7_OUT> created at line 0.
+    Found 15-bit adder for signal <GND_15_o_b[3]_add_1_OUT> created at line 0.
+    Found 14-bit adder for signal <GND_15_o_b[3]_add_3_OUT> created at line 0.
+    Found 13-bit adder for signal <GND_15_o_b[3]_add_5_OUT> created at line 0.
+    Found 12-bit adder for signal <GND_15_o_b[3]_add_7_OUT> created at line 0.
     Found 11-bit adder for signal <a[10]_b[3]_add_9_OUT> created at line 0.
-    Found 11-bit adder for signal <a[10]_GND_16_o_add_11_OUT> created at line 0.
-    Found 11-bit adder for signal <a[10]_GND_16_o_add_13_OUT> created at line 0.
-    Found 11-bit adder for signal <a[10]_GND_16_o_add_15_OUT> created at line 0.
-    Found 11-bit adder for signal <a[10]_GND_16_o_add_17_OUT> created at line 0.
-    Found 11-bit adder for signal <a[10]_GND_16_o_add_19_OUT> created at line 0.
-    Found 11-bit adder for signal <a[10]_GND_16_o_add_21_OUT> created at line 0.
-    Found 11-bit adder for signal <a[10]_GND_16_o_add_23_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_15_o_add_11_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_15_o_add_13_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_15_o_add_15_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_15_o_add_17_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_15_o_add_19_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_15_o_add_21_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_15_o_add_23_OUT> created at line 0.
     Found 15-bit comparator lessequal for signal <BUS_0001> created at line 0
     Found 14-bit comparator lessequal for signal <BUS_0002> created at line 0
     Found 13-bit comparator lessequal for signal <BUS_0003> created at line 0
@@ -319,6 +326,37 @@ Synthesizing Unit <rem_11u_4u>.
 	inferred  12 Comparator(s).
 	inferred 122 Multiplexer(s).
 Unit <rem_11u_4u> synthesized.
+
+Synthesizing Unit <div_11u_6u>.
+    Related source file is "".
+    Found 17-bit adder for signal <GND_16_o_b[5]_add_1_OUT> created at line 0.
+    Found 16-bit adder for signal <GND_16_o_b[5]_add_3_OUT> created at line 0.
+    Found 15-bit adder for signal <GND_16_o_b[5]_add_5_OUT> created at line 0.
+    Found 14-bit adder for signal <GND_16_o_b[5]_add_7_OUT> created at line 0.
+    Found 13-bit adder for signal <GND_16_o_b[5]_add_9_OUT> created at line 0.
+    Found 12-bit adder for signal <GND_16_o_b[5]_add_11_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_b[5]_add_13_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_16_o_add_15_OUT> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_16_o_add_17_OUT[10:0]> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_16_o_add_19_OUT[10:0]> created at line 0.
+    Found 11-bit adder for signal <a[10]_GND_16_o_add_21_OUT[10:0]> created at line 0.
+    Found 17-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 16-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 15-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 14-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 13-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 12-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 11-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 11-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 11-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 11-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 11-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 11-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Summary:
+	inferred  11 Adder/Subtractor(s).
+	inferred  12 Comparator(s).
+	inferred  91 Multiplexer(s).
+Unit <div_11u_6u> synthesized.
 
 Synthesizing Unit <div_11u_4u>.
     Related source file is "".
@@ -355,13 +393,13 @@ Synthesizing Unit <PixelROM>.
     Related source file is "C:\Users\Miguel\Documents\GitHub\AddressSort\PixelROM.vhd".
     Found 32x60-bit Read Only RAM for signal <_n0146>
     Found 1-bit 8-to-1 multiplexer for signal <data> created at line 256.
-    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_15_o_wide_mux_12_OUT<7>> created at line 256.
-    Found 1-bit 10-to-1 multiplexer for signal <line[3]_X_15_o_wide_mux_12_OUT<6>> created at line 256.
-    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_15_o_wide_mux_12_OUT<5>> created at line 256.
-    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_15_o_wide_mux_12_OUT<4>> created at line 256.
-    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_15_o_wide_mux_12_OUT<3>> created at line 256.
-    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_15_o_wide_mux_12_OUT<2>> created at line 256.
-    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_15_o_wide_mux_12_OUT<1>> created at line 256.
+    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_14_o_wide_mux_12_OUT<7>> created at line 256.
+    Found 1-bit 10-to-1 multiplexer for signal <line[3]_X_14_o_wide_mux_12_OUT<6>> created at line 256.
+    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_14_o_wide_mux_12_OUT<5>> created at line 256.
+    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_14_o_wide_mux_12_OUT<4>> created at line 256.
+    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_14_o_wide_mux_12_OUT<3>> created at line 256.
+    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_14_o_wide_mux_12_OUT<2>> created at line 256.
+    Found 1-bit 11-to-1 multiplexer for signal <line[3]_X_14_o_wide_mux_12_OUT<1>> created at line 256.
     Summary:
 	inferred   1 RAM(s).
 	inferred   8 Multiplexer(s).
@@ -371,51 +409,54 @@ Unit <PixelROM> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 6
- 1024x1-bit dual-port RAM                              : 1
- 1024x5-bit dual-port RAM                              : 4
+# RAMs                                                 : 3
+ 256x30-bit dual-port RAM                              : 1
  32x60-bit single-port Read Only RAM                   : 1
+ 65536x1-bit dual-port RAM                             : 1
 # Multipliers                                          : 1
- 11x7-bit multiplier                                   : 1
-# Adders/Subtractors                                   : 33
- 10-bit adder                                          : 2
- 11-bit adder                                          : 17
- 11-bit subtractor                                     : 1
- 12-bit adder                                          : 2
- 12-bit subtractor                                     : 1
- 13-bit adder                                          : 2
- 14-bit adder                                          : 2
- 15-bit adder                                          : 2
- 18-bit adder                                          : 1
+ 11x4-bit multiplier                                   : 1
+# Adders/Subtractors                                   : 46
+ 11-bit adder                                          : 22
+ 11-bit subtractor                                     : 2
+ 12-bit adder                                          : 3
+ 13-bit adder                                          : 3
+ 14-bit adder                                          : 3
+ 15-bit adder                                          : 4
+ 16-bit adder                                          : 2
+ 17-bit adder                                          : 1
  3-bit adder                                           : 1
  3-bit subtractor                                      : 1
- 8-bit adder                                           : 1
-# Registers                                            : 29
- 1-bit register                                        : 9
- 10-bit register                                       : 8
+ 32-bit adder                                          : 2
+ 8-bit adder                                           : 2
+# Registers                                            : 44
+ 1-bit register                                        : 34
  11-bit register                                       : 2
+ 16-bit register                                       : 2
  3-bit register                                        : 1
- 5-bit register                                        : 8
- 8-bit register                                        : 1
-# Comparators                                          : 35
+ 30-bit register                                       : 1
+ 32-bit register                                       : 1
+ 8-bit register                                        : 3
+# Comparators                                          : 47
  11-bit comparator greater                             : 4
- 11-bit comparator lessequal                           : 20
- 12-bit comparator lessequal                           : 2
- 13-bit comparator lessequal                           : 2
- 14-bit comparator lessequal                           : 2
- 15-bit comparator lessequal                           : 2
+ 11-bit comparator lessequal                           : 26
+ 12-bit comparator lessequal                           : 3
+ 13-bit comparator lessequal                           : 3
+ 14-bit comparator lessequal                           : 3
+ 15-bit comparator lessequal                           : 3
+ 16-bit comparator lessequal                           : 1
+ 17-bit comparator lessequal                           : 1
  3-bit comparator greater                              : 1
  3-bit comparator lessequal                            : 1
  8-bit comparator greater                              : 1
-# Multiplexers                                         : 225
+# Multiplexers                                         : 316
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 11-to-1 multiplexer                             : 6
- 1-bit 2-to-1 multiplexer                              : 209
+ 1-bit 2-to-1 multiplexer                              : 297
  1-bit 8-to-1 multiplexer                              : 1
- 10-bit 2-to-1 multiplexer                             : 2
- 11-bit 2-to-1 multiplexer                             : 3
+ 11-bit 2-to-1 multiplexer                             : 6
  4-bit 2-to-1 multiplexer                              : 2
- 5-bit 4-to-1 multiplexer                              : 1
+ 5-bit 26-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 2
 # Xors                                                 : 1
  1-bit xor2                                            : 1
 
@@ -425,25 +466,22 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-INFO:Xst:2261 - The FF/Latch <temp_add_6> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_6> 
-INFO:Xst:2261 - The FF/Latch <temp_add_7> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_7> 
-INFO:Xst:2261 - The FF/Latch <temp_add_8> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_8> 
-INFO:Xst:2261 - The FF/Latch <temp_add_9> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_9> 
-INFO:Xst:2261 - The FF/Latch <dout3_3> in Unit <decoder> is equivalent to the following 2 FFs/Latches, which will be removed : <dout3_2> <dout3_1> 
-INFO:Xst:2261 - The FF/Latch <dout1_4> in Unit <decoder> is equivalent to the following 4 FFs/Latches, which will be removed : <dout2_4> <dout0_2> <dout0_3> <dout0_4> 
-INFO:Xst:2261 - The FF/Latch <temp_add_0> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_0> 
-INFO:Xst:2261 - The FF/Latch <temp_add_1> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_1> 
-INFO:Xst:2261 - The FF/Latch <temp_add_2> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_2> 
-INFO:Xst:2261 - The FF/Latch <temp_add_3> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_3> 
-INFO:Xst:2261 - The FF/Latch <temp_add_4> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_4> 
-INFO:Xst:2261 - The FF/Latch <temp_add_5> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd0_5> 
+INFO:Xst:2261 - The FF/Latch <temp_add_4> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd_4> 
+INFO:Xst:2261 - The FF/Latch <temp_add_5> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd_5> 
+INFO:Xst:2261 - The FF/Latch <temp_add_6> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd_6> 
+INFO:Xst:2261 - The FF/Latch <temp_add_7> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd_7> 
+INFO:Xst:2261 - The FF/Latch <dout_27> in Unit <decoder> is equivalent to the following 11 FFs/Latches, which will be removed : <dout_26> <dout_24> <dout_19> <dout_14> <dout_9> <dout_4> <dout_3> <dout_2> <dout_1> <dout_0> <dout_28> 
+INFO:Xst:2261 - The FF/Latch <temp_add_0> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd_0> 
+INFO:Xst:2261 - The FF/Latch <temp_add_1> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd_1> 
+INFO:Xst:2261 - The FF/Latch <temp_add_2> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd_2> 
+INFO:Xst:2261 - The FF/Latch <temp_add_3> in Unit <decoder> is equivalent to the following FF/Latch, which will be removed : <wadd_3> 
 
 Synthesizing (advanced) Unit <ClockGenerator>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
 Unit <ClockGenerator> synthesized (advanced).
 
 Synthesizing (advanced) Unit <PixelROM>.
-INFO:Xst:3231 - The small RAM <Mram__n0146> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0146> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -462,14 +500,14 @@ INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_my_ram> will be implemented on LUTs 
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 1024-word x 1-bit                   |          |
+    |     aspect ratio   | 65536-word x 1-bit                  |          |
     |     clkA           | connected to signal <clk>           | rise     |
     |     weA            | connected to signal <we>            | high     |
     |     addrA          | connected to signal <wadd>          |          |
     |     diA            | connected to signal <VCC>           |          |
     -----------------------------------------------------------------------
     | Port B                                                              |
-    |     aspect ratio   | 1024-word x 1-bit                   |          |
+    |     aspect ratio   | 65536-word x 1-bit                  |          |
     |     addrB          | connected to signal <radd>          |          |
     |     doB            | connected to internal node          |          |
     -----------------------------------------------------------------------
@@ -481,95 +519,26 @@ Unit <RNG> synthesized (advanced).
 
 Synthesizing (advanced) Unit <TopLevel>.
 The following registers are absorbed into counter <radd>: 1 register on signal <radd>.
-INFO:Xst:3226 - The RAM <vgaram/ram3/Mram_my_ram> will be implemented as a BLOCK RAM, absorbing the following register(s): <vgaram/ram3/dout>
+INFO:Xst:3226 - The RAM <vgaram/Mram_my_ram> will be implemented as a BLOCK RAM, absorbing the following register(s): <vgaram/dout>
     -----------------------------------------------------------------------
     | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 1024-word x 5-bit                   |          |
+    |     aspect ratio   | 256-word x 30-bit                   |          |
     |     mode           | read-first                          |          |
     |     clkA           | connected to signal <clk>           | rise     |
-    |     weA            | connected to signal <vgaram/ram3/n0000_0> | low      |
-    |     addrA          | connected to signal <wadd0>         |          |
-    |     diA            | connected to signal <("1",dout3,"1")> |          |
+    |     weA            | connected to signal <vgaram/n0000_0> | low      |
+    |     addrA          | connected to signal <wadd>          |          |
+    |     diA            | connected to signal <("1",dout,"1",dout)> |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
     | Port B                                                              |
-    |     aspect ratio   | 1024-word x 5-bit                   |          |
-    |     mode           | write-first                         |          |
-    |     clkB           | connected to signal <clk>           | rise     |
-    |     addrB          | connected to signal <vgaram/radd3>  |          |
-    |     doB            | connected to signal <vgaram/dout3>  |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-INFO:Xst:3226 - The RAM <vgaram/ram2/Mram_my_ram> will be implemented as a BLOCK RAM, absorbing the following register(s): <vgaram/ram2/dout>
-    -----------------------------------------------------------------------
-    | ram_type           | Block                               |          |
-    -----------------------------------------------------------------------
-    | Port A                                                              |
-    |     aspect ratio   | 1024-word x 5-bit                   |          |
+    |     aspect ratio   | 256-word x 30-bit                   |          |
     |     mode           | read-first                          |          |
-    |     clkA           | connected to signal <clk>           | rise     |
-    |     weA            | connected to signal <vgaram/ram2/n0000_0> | low      |
-    |     addrA          | connected to signal <wadd0>         |          |
-    |     diA            | connected to signal <dout2>         |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-    | Port B                                                              |
-    |     aspect ratio   | 1024-word x 5-bit                   |          |
-    |     mode           | write-first                         |          |
     |     clkB           | connected to signal <clk>           | rise     |
-    |     addrB          | connected to signal <vgaram/radd2>  |          |
-    |     doB            | connected to signal <vgaram/dout2>  |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-INFO:Xst:3226 - The RAM <vgaram/ram1/Mram_my_ram> will be implemented as a BLOCK RAM, absorbing the following register(s): <vgaram/ram1/dout>
-    -----------------------------------------------------------------------
-    | ram_type           | Block                               |          |
-    -----------------------------------------------------------------------
-    | Port A                                                              |
-    |     aspect ratio   | 1024-word x 5-bit                   |          |
-    |     mode           | read-first                          |          |
-    |     clkA           | connected to signal <clk>           | rise     |
-    |     weA            | connected to signal <vgaram/ram1/n0000_0> | low      |
-    |     addrA          | connected to signal <wadd0>         |          |
-    |     diA            | connected to signal <dout1>         |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-    | Port B                                                              |
-    |     aspect ratio   | 1024-word x 5-bit                   |          |
-    |     mode           | write-first                         |          |
-    |     clkB           | connected to signal <clk>           | rise     |
-    |     addrB          | connected to signal <vgaram/radd1>  |          |
-    |     doB            | connected to signal <vgaram/dout1>  |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-INFO:Xst:3226 - The RAM <vgaram/ram0/Mram_my_ram> will be implemented as a BLOCK RAM, absorbing the following register(s): <vgaram/ram0/dout>
-    -----------------------------------------------------------------------
-    | ram_type           | Block                               |          |
-    -----------------------------------------------------------------------
-    | Port A                                                              |
-    |     aspect ratio   | 1024-word x 5-bit                   |          |
-    |     mode           | read-first                          |          |
-    |     clkA           | connected to signal <clk>           | rise     |
-    |     weA            | connected to signal <vgaram/ram0/n0000_0> | low      |
-    |     addrA          | connected to signal <wadd0>         |          |
-    |     diA            | connected to signal <dout0>         |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-    | Port B                                                              |
-    |     aspect ratio   | 1024-word x 5-bit                   |          |
-    |     mode           | write-first                         |          |
-    |     clkB           | connected to signal <clk>           | rise     |
-    |     addrB          | connected to signal <vgaram/radd0>  |          |
-    |     doB            | connected to signal <vgaram/dout0>  |          |
+    |     addrB          | connected to signal <ram_add>       |          |
+    |     doB            | connected to signal <ram_data>      |          |
     -----------------------------------------------------------------------
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
@@ -581,51 +550,57 @@ The following registers are absorbed into counter <vcounter>: 1 register on sign
 Unit <VGASync> synthesized (advanced).
 
 Synthesizing (advanced) Unit <VGAText>.
-	Multiplier <Mmult_n0045> in block <VGAText> and adder/subtractor <Madd_n0023_Madd> in block <VGAText> are combined into a MAC<Maddsub_n0045>.
+The following registers are absorbed into accumulator <hc>: 1 register on signal <hc>.
+	Multiplier <Mmult_n0103> in block <VGAText> and adder/subtractor <Madd_n0053_Madd> in block <VGAText> are combined into a MAC<Maddsub_n0103>.
 Unit <VGAText> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 6
- 1024x1-bit dual-port distributed RAM                  : 1
- 1024x5-bit dual-port block RAM                        : 4
+# RAMs                                                 : 3
+ 256x30-bit dual-port block RAM                        : 1
  32x60-bit single-port distributed Read Only RAM       : 1
+ 65536x1-bit dual-port distributed RAM                 : 1
 # MACs                                                 : 1
- 11x7-to-12-bit MAC                                    : 1
-# Adders/Subtractors                                   : 27
- 10-bit adder                                          : 1
- 11-bit adder                                          : 22
+ 11x4-to-8-bit MAC                                     : 1
+# Adders/Subtractors                                   : 39
+ 11-bit adder                                          : 33
  11-bit subtractor                                     : 2
  3-bit subtractor                                      : 1
  4-bit adder                                           : 1
+ 5-bit adder                                           : 1
+ 8-bit adder                                           : 1
 # Counters                                             : 5
- 10-bit up counter                                     : 1
  11-bit up counter                                     : 2
+ 16-bit up counter                                     : 1
  3-bit up counter                                      : 1
  8-bit up counter                                      : 1
-# Registers                                            : 99
- Flip-Flops                                            : 99
-# Comparators                                          : 35
+# Accumulators                                         : 1
+ 32-bit up accumulator                                 : 1
+# Registers                                            : 66
+ Flip-Flops                                            : 66
+# Comparators                                          : 47
  11-bit comparator greater                             : 4
- 11-bit comparator lessequal                           : 20
- 12-bit comparator lessequal                           : 2
- 13-bit comparator lessequal                           : 2
- 14-bit comparator lessequal                           : 2
- 15-bit comparator lessequal                           : 2
+ 11-bit comparator lessequal                           : 26
+ 12-bit comparator lessequal                           : 3
+ 13-bit comparator lessequal                           : 3
+ 14-bit comparator lessequal                           : 3
+ 15-bit comparator lessequal                           : 3
+ 16-bit comparator lessequal                           : 1
+ 17-bit comparator lessequal                           : 1
  3-bit comparator greater                              : 1
  3-bit comparator lessequal                            : 1
  8-bit comparator greater                              : 1
-# Multiplexers                                         : 224
+# Multiplexers                                         : 315
  1-bit 10-to-1 multiplexer                             : 1
  1-bit 11-to-1 multiplexer                             : 6
- 1-bit 2-to-1 multiplexer                              : 209
+ 1-bit 2-to-1 multiplexer                              : 297
  1-bit 8-to-1 multiplexer                              : 1
- 10-bit 2-to-1 multiplexer                             : 2
- 11-bit 2-to-1 multiplexer                             : 3
+ 11-bit 2-to-1 multiplexer                             : 6
  4-bit 2-to-1 multiplexer                              : 1
- 5-bit 4-to-1 multiplexer                              : 1
+ 5-bit 26-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 2
 # Xors                                                 : 1
  1-bit xor2                                            : 1
 
@@ -634,18 +609,15 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_0> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_0> 
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_1> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_1> 
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_2> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_2> 
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_3> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_3> 
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_4> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_4> 
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_5> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_5> 
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_6> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_6> 
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_7> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_7> 
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_8> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_8> 
-INFO:Xst:2261 - The FF/Latch <decoder/temp_add_9> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd0_9> 
-INFO:Xst:2261 - The FF/Latch <decoder/dout0_2> in Unit <TopLevel> is equivalent to the following 4 FFs/Latches, which will be removed : <decoder/dout0_3> <decoder/dout0_4> <decoder/dout2_4> <decoder/dout1_4> 
-INFO:Xst:2261 - The FF/Latch <decoder/dout3_1> in Unit <TopLevel> is equivalent to the following 2 FFs/Latches, which will be removed : <decoder/dout3_2> <decoder/dout3_3> 
+INFO:Xst:2261 - The FF/Latch <decoder/temp_add_0> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd_0> 
+INFO:Xst:2261 - The FF/Latch <decoder/temp_add_1> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd_1> 
+INFO:Xst:2261 - The FF/Latch <decoder/temp_add_2> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd_2> 
+INFO:Xst:2261 - The FF/Latch <decoder/temp_add_3> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd_3> 
+INFO:Xst:2261 - The FF/Latch <decoder/temp_add_4> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd_4> 
+INFO:Xst:2261 - The FF/Latch <decoder/temp_add_5> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd_5> 
+INFO:Xst:2261 - The FF/Latch <decoder/temp_add_6> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd_6> 
+INFO:Xst:2261 - The FF/Latch <decoder/temp_add_7> in Unit <TopLevel> is equivalent to the following FF/Latch, which will be removed : <decoder/wadd_7> 
+INFO:Xst:2261 - The FF/Latch <decoder/dout_1> in Unit <TopLevel> is equivalent to the following 11 FFs/Latches, which will be removed : <decoder/dout_28> <decoder/dout_0> <decoder/dout_2> <decoder/dout_3> <decoder/dout_14> <decoder/dout_4> <decoder/dout_9> <decoder/dout_19> <decoder/dout_24> <decoder/dout_26> <decoder/dout_27> 
 
 Optimizing unit <TopLevel> ...
 
@@ -655,7 +627,7 @@ Optimizing unit <PixelROM> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block TopLevel, actual ratio is 0.
+Found area constraint ratio of 100 (+ 5) on block TopLevel, actual ratio is 3.
 
 Final Macro Processing ...
 
@@ -663,8 +635,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 126
- Flip-Flops                                            : 126
+# Registers                                            : 128
+ Flip-Flops                                            : 128
 
 =========================================================================
 
@@ -687,28 +659,28 @@ Top Level Output File Name         : TopLevel.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 379
+# BELS                             : 1256
 #      GND                         : 1
-#      INV                         : 6
-#      LUT1                        : 36
-#      LUT2                        : 17
-#      LUT3                        : 19
-#      LUT4                        : 40
-#      LUT5                        : 45
-#      LUT6                        : 116
-#      MUXCY                       : 43
-#      MUXF7                       : 7
+#      INV                         : 8
+#      LUT1                        : 73
+#      LUT2                        : 13
+#      LUT3                        : 44
+#      LUT4                        : 27
+#      LUT5                        : 86
+#      LUT6                        : 819
+#      MUXCY                       : 84
+#      MUXF7                       : 9
 #      VCC                         : 1
-#      XORCY                       : 48
-# FlipFlops/Latches                : 126
-#      FD                          : 26
-#      FDE                         : 69
+#      XORCY                       : 91
+# FlipFlops/Latches                : 128
+#      FD                          : 24
+#      FDE                         : 41
 #      FDR                         : 18
+#      FDRE                        : 43
 #      FDS                         : 2
-#      FDSE                        : 11
-# RAMS                             : 12
-#      RAM128X1D                   : 8
-#      RAMB18E1                    : 4
+# RAMS                             : 513
+#      RAM128X1D                   : 512
+#      RAMB18E1                    : 1
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
@@ -722,26 +694,26 @@ Selected Device : 7a100tcsg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             126  out of  126800     0%  
- Number of Slice LUTs:                  311  out of  63400     0%  
-    Number used as Logic:               279  out of  63400     0%  
-    Number used as Memory:               32  out of  19000     0%  
-       Number used as RAM:               32
+ Number of Slice Registers:             128  out of  126800     0%  
+ Number of Slice LUTs:                 3118  out of  63400     4%  
+    Number used as Logic:              1070  out of  63400     1%  
+    Number used as Memory:             2048  out of  19000    10%  
+       Number used as RAM:             2048
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    367
-   Number with an unused Flip Flop:     241  out of    367    65%  
-   Number with an unused LUT:            56  out of    367    15%  
-   Number of fully used LUT-FF pairs:    70  out of    367    19%  
-   Number of unique control sets:        18
+ Number of LUT Flip Flop pairs used:   3133
+   Number with an unused Flip Flop:    3005  out of   3133    95%  
+   Number with an unused LUT:            15  out of   3133     0%  
+   Number of fully used LUT-FF pairs:   113  out of   3133     3%  
+   Number of unique control sets:        14
 
 IO Utilization: 
  Number of IOs:                          16
  Number of bonded IOBs:                  16  out of    210     7%  
 
 Specific Feature Utilization:
- Number of Block RAM/FIFO:                2  out of    135     1%  
-    Number using Block RAM only:          2
+ Number of Block RAM/FIFO:                1  out of    135     0%  
+    Number using Block RAM only:          1
  Number of BUFG/BUFGCTRLs:                2  out of     32     6%  
 
 ---------------------------
@@ -765,28 +737,21 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 94    |
-cgenerator/clk25                   | BUFG                   | 44    |
+clk                                | BUFGP                  | 591   |
+cgenerator/clk25                   | BUFG                   | 50    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
---------------------------------------------------+------------------------------+-------+
-Control Signal                                    | Buffer(FF name)              | Load  |
---------------------------------------------------+------------------------------+-------+
-vgaram/ram0/n0000_0_inv(vgaram/ram0/n0000_0_inv:O)| NONE(vgaram/ram0/Mram_my_ram)| 2     |
-vgaram/ram1/n0000_0_inv(vgaram/ram1/n0000_0_inv:O)| NONE(vgaram/ram1/Mram_my_ram)| 2     |
-vgaram/ram2/n0000_0_inv(vgaram/ram2/n0000_0_inv:O)| NONE(vgaram/ram2/Mram_my_ram)| 2     |
-vgaram/ram3/n0000_0_inv(vgaram/ram3/n0000_0_inv:O)| NONE(vgaram/ram3/Mram_my_ram)| 2     |
---------------------------------------------------+------------------------------+-------+
+No asynchronous control signals found in this design
 
 Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 2.507ns (Maximum Frequency: 398.835MHz)
+   Minimum period: 3.983ns (Maximum Frequency: 251.039MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 9.674ns
+   Maximum output required time after clock: 11.437ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -795,54 +760,60 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 2.507ns (frequency: 398.835MHz)
-  Total number of paths / destination ports: 432 / 175
+  Clock period: 3.983ns (frequency: 251.039MHz)
+  Total number of paths / destination ports: 10439 / 156
 -------------------------------------------------------------------------
-Delay:               2.507ns (Levels of Logic = 1)
-  Source:            vgaram/ram3/Mram_my_ram (RAM)
-  Destination:       vgaram/dout_0 (FF)
+Delay:               3.983ns (Levels of Logic = 6)
+  Source:            radd_7 (FF)
+  Destination:       decoder/dout_1 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: vgaram/ram3/Mram_my_ram to vgaram/dout_0
+  Data Path: radd_7 to decoder/dout_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB18E1:CLKARDCLK->DOBDO0    1   1.846   0.556  vgaram/ram3/Mram_my_ram (vgaram/dout3<0>)
-     LUT6:I2->O            1   0.097   0.000  vgaram/Mmux_dout0[4]_dout3[4]_mux_6_OUT11 (vgaram/dout0[4]_dout3[4]_mux_6_OUT<0>)
-     FD:D                      0.008          vgaram/dout_0
+     FDE:C->Q            131   0.361   0.501  radd_7 (radd_7)
+     LUT6:I4->O            1   0.097   0.556  inst_LPM_MUX_1814 (inst_LPM_MUX_1814)
+     LUT6:I2->O            1   0.097   0.556  inst_LPM_MUX_134 (inst_LPM_MUX_134)
+     LUT6:I2->O            1   0.097   0.556  inst_LPM_MUX_81 (inst_LPM_MUX_81)
+     LUT6:I2->O            1   0.097   0.000  inst_LPM_MUX_3 (inst_LPM_MUX_3)
+     MUXF7:I1->O          25   0.279   0.385  inst_LPM_MUX_2_f7 (ram_out)
+     INV:I->O              1   0.113   0.279  decoder/din_INV_11_o1_INV_0 (decoder/din_INV_11_o)
+     FDE:D                     0.008          decoder/dout_1
     ----------------------------------------
-    Total                      2.507ns (1.951ns logic, 0.556ns route)
-                                       (77.8% logic, 22.2% route)
+    Total                      3.983ns (1.149ns logic, 2.834ns route)
+                                       (28.8% logic, 71.2% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'cgenerator/clk25'
-  Clock period: 2.462ns (frequency: 406.190MHz)
-  Total number of paths / destination ports: 835 / 74
+  Clock period: 2.865ns (frequency: 348.991MHz)
+  Total number of paths / destination ports: 935 / 107
 -------------------------------------------------------------------------
-Delay:               2.462ns (Levels of Logic = 2)
-  Source:            vgasync/vcounter_4 (FF)
-  Destination:       vgasync/vcounter_0 (FF)
+Delay:               2.865ns (Levels of Logic = 3)
+  Source:            vgasync/vcounter_5 (FF)
+  Destination:       vgasync/blank (FF)
   Source Clock:      cgenerator/clk25 rising
   Destination Clock: cgenerator/clk25 rising
 
-  Data Path: vgasync/vcounter_4 to vgasync/vcounter_0
+  Data Path: vgasync/vcounter_5 to vgasync/blank
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               7   0.361   0.539  vgasync/vcounter_4 (vgasync/vcounter_4)
-     LUT3:I0->O            3   0.097   0.693  vgasync/GND_13_o_vcounter[10]_AND_16_o21 (vgasync/GND_13_o_vcounter[10]_AND_16_o2)
-     LUT6:I1->O           11   0.097   0.325  vgasync/_n0060 (vgasync/_n0060)
-     FDR:R                     0.349          vgasync/vcounter_0
+     FDRE:C->Q            22   0.361   0.779  vgasync/vcounter_5 (vgasync/vcounter_5)
+     LUT5:I0->O            1   0.097   0.295  vgasync/videoEN6 (vgasync/videoEN6)
+     LUT4:I3->O            1   0.097   0.511  vgasync/videoEN7 (vgasync/videoEN7)
+     LUT6:I3->O            1   0.097   0.279  vgasync/videoEN8 (vgasync/videoEN)
+     FDR:R                     0.349          vgasync/blank
     ----------------------------------------
-    Total                      2.462ns (0.904ns logic, 1.558ns route)
-                                       (36.7% logic, 63.3% route)
+    Total                      2.865ns (1.001ns logic, 1.864ns route)
+                                       (34.9% logic, 65.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'cgenerator/clk25'
-  Total number of paths / destination ports: 552182 / 6
+  Total number of paths / destination ports: 3026658 / 6
 -------------------------------------------------------------------------
-Offset:              9.674ns (Levels of Logic = 16)
+Offset:              11.437ns (Levels of Logic = 17)
   Source:            vgasync/vcounter_4 (FF)
   Destination:       vgaGreen<3> (PAD)
   Source Clock:      cgenerator/clk25 rising
@@ -851,51 +822,58 @@ Offset:              9.674ns (Levels of Logic = 16)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               7   0.361   0.711  vgasync/vcounter_4 (vgasync/vcounter_4)
-     LUT5:I0->O           17   0.097   0.631  vgatext/Msub_GND_15_o_GND_15_o_sub_7_OUT<10:0>_xor<8>111 (vgatext/Msub_GND_15_o_GND_15_o_sub_7_OUT<10:0>_xor<8>11)
-     LUT5:I1->O            6   0.097   0.534  vgatext/Msub_GND_15_o_GND_15_o_sub_7_OUT<10:0>_cy<8>11 (vgatext/Msub_GND_15_o_GND_15_o_sub_7_OUT<10:0>_cy<8>)
-     LUT4:I1->O            3   0.097   0.566  vgatext/GND_15_o_PWR_15_o_div_7_OUT<6>1 (vgatext/GND_15_o_PWR_15_o_div_7_OUT<6>)
-     LUT6:I2->O            4   0.097   0.309  vgatext/GND_15_o_PWR_15_o_rem_2/BUS_0008_INV_141_o (vgatext/GND_15_o_PWR_15_o_rem_2/BUS_0008_INV_141_o)
-     LUT5:I4->O            2   0.097   0.698  vgatext/GND_15_o_PWR_15_o_rem_2/Mmux_a[8]_a[10]_MUX_209_o11 (vgatext/GND_15_o_PWR_15_o_rem_2/Mmux_a[7]_a[10]_MUX_221_o12)
-     LUT6:I0->O            2   0.097   0.516  vgatext/GND_15_o_PWR_15_o_rem_2/BUS_0010_INV_165_o11 (vgatext/GND_15_o_PWR_15_o_rem_2/BUS_0010_INV_165_o)
-     LUT6:I3->O            2   0.097   0.697  vgatext/GND_15_o_PWR_15_o_rem_2/BUS_0011_INV_177_o11 (vgatext/GND_15_o_PWR_15_o_rem_2/BUS_0011_INV_177_o)
-     LUT6:I0->O           13   0.097   0.351  vgatext/GND_15_o_PWR_15_o_rem_2/BUS_0012_INV_189_o1 (vgatext/GND_15_o_PWR_15_o_rem_2/BUS_0012_INV_189_o)
-     LUT4:I3->O           21   0.097   0.774  vgatext/GND_15_o_PWR_15_o_rem_2/Mmux_o31 (rom_line<2>)
-     LUT6:I1->O            1   0.097   0.511  vgatext/green<1>38_SW0 (N71)
-     LUT4:I1->O            1   0.097   0.295  vgatext/green<1>38 (vgatext/green<1>37)
-     LUT6:I5->O            1   0.097   0.295  vgatext/green<1>39 (vgatext/green<1>38)
-     LUT6:I5->O            1   0.097   0.295  vgatext/green<1>63 (vgatext/green<1>62)
-     LUT6:I5->O            1   0.097   0.379  vgatext/green<1>96_SW0 (N69)
-     LUT6:I4->O            4   0.097   0.293  vgatext/green<1>96 (vgaGreen_0_OBUF)
+     FDRE:C->Q             6   0.361   0.706  vgasync/vcounter_4 (vgasync/vcounter_4)
+     LUT5:I0->O           18   0.097   0.635  vgatext/Msub_GND_14_o_GND_14_o_sub_8_OUT<10:0>_xor<8>111 (vgatext/Msub_GND_14_o_GND_14_o_sub_8_OUT<10:0>_xor<8>11)
+     LUT5:I1->O            4   0.097   0.525  vgatext/Msub_GND_14_o_GND_14_o_sub_8_OUT<10:0>_cy<8>11 (vgatext/Msub_GND_14_o_GND_14_o_sub_8_OUT<10:0>_cy<8>)
+     LUT4:I1->O            4   0.097   0.570  vgatext/GND_14_o_PWR_14_o_div_8_OUT<6>1 (vgatext/GND_14_o_PWR_14_o_div_8_OUT<6>)
+     LUT6:I2->O            8   0.097   0.589  vgatext/GND_14_o_PWR_14_o_div_8_OUT<4>1 (vgatext/GND_14_o_PWR_14_o_div_8_OUT<4>)
+     LUT6:I2->O            9   0.097   0.593  vgatext/GND_14_o_PWR_14_o_rem_2/Mmux_a[7]_a[10]_MUX_252_o11 (vgatext/GND_14_o_PWR_14_o_rem_2/a[7]_a[10]_MUX_252_o)
+     LUT4:I0->O            3   0.097   0.693  vgatext/GND_14_o_PWR_14_o_div_8_OUT<3>11 (vgatext/GND_14_o_PWR_14_o_div_8_OUT<3>1)
+     LUT6:I1->O            5   0.097   0.702  vgatext/GND_14_o_PWR_14_o_rem_2/BUS_0010_INV_171_o1 (vgatext/GND_14_o_PWR_14_o_rem_2/BUS_0010_INV_171_o1)
+     LUT5:I0->O            1   0.097   0.379  vgatext/GND_14_o_PWR_14_o_rem_2/BUS_0011_INV_183_o12 (vgatext/GND_14_o_PWR_14_o_rem_2/BUS_0011_INV_183_o11)
+     LUT5:I3->O            3   0.097   0.521  vgatext/GND_14_o_PWR_14_o_rem_2/BUS_0011_INV_183_o13 (vgatext/GND_14_o_PWR_14_o_rem_2/BUS_0011_INV_183_o)
+     LUT4:I1->O            9   0.097   0.332  vgatext/GND_14_o_PWR_14_o_rem_2/BUS_0012_INV_195_o15 (vgatext/GND_14_o_PWR_14_o_rem_2/BUS_0012_INV_195_o)
+     LUT4:I3->O           22   0.097   0.789  vgatext/GND_14_o_PWR_14_o_rem_2/Mmux_o31 (rom_line<2>)
+     LUT6:I0->O            3   0.097   0.703  pixel/Mmux_line[3]_X_14_o_wide_mux_12_OUT<5>22111 (pixel/Mmux_line[3]_X_14_o_wide_mux_12_OUT<5>2211)
+     LUT6:I0->O            1   0.097   0.556  vgatext/green<1>8 (vgatext/green<1>7)
+     LUT6:I2->O            1   0.097   0.556  vgatext/green<1>14 (vgatext/green<1>13)
+     LUT6:I2->O            1   0.097   0.379  vgatext/green<1>94_SW0 (N1578)
+     LUT6:I4->O            4   0.097   0.293  vgatext/green<1>94 (vgaGreen_0_OBUF)
      OBUF:I->O                 0.000          vgaGreen_3_OBUF (vgaGreen<3>)
     ----------------------------------------
-    Total                      9.674ns (1.816ns logic, 7.858ns route)
-                                       (18.8% logic, 81.2% route)
+    Total                     11.437ns (1.913ns logic, 9.524ns route)
+                                       (16.7% logic, 83.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 785 / 5
+  Total number of paths / destination ports: 63405 / 5
 -------------------------------------------------------------------------
-Offset:              4.352ns (Levels of Logic = 7)
-  Source:            vgaram/dout_1 (FF)
+Offset:              8.349ns (Levels of Logic = 13)
+  Source:            vgaram/Mram_my_ram (RAM)
   Destination:       vgaGreen<3> (PAD)
   Source Clock:      clk rising
 
-  Data Path: vgaram/dout_1 to vgaGreen<3>
+  Data Path: vgaram/Mram_my_ram to vgaGreen<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              43   0.361   0.792  vgaram/dout_1 (vgaram/dout_1)
-     LUT5:I0->O            4   0.097   0.697  pixel/Mmux_line[3]_X_15_o_wide_mux_12_OUT<5>22111 (pixel/Mmux_line[3]_X_15_o_wide_mux_12_OUT<5>2211)
-     LUT6:I1->O            1   0.097   0.000  vgatext/green<1>21_F (N79)
-     MUXF7:I0->O           1   0.277   0.556  vgatext/green<1>21 (vgatext/green<1>20)
-     LUT6:I2->O            1   0.097   0.511  vgatext/green<1>24 (vgatext/green<1>23)
-     LUT6:I3->O            1   0.097   0.379  vgatext/green<1>96_SW0 (N69)
-     LUT6:I4->O            4   0.097   0.293  vgatext/green<1>96 (vgaGreen_0_OBUF)
+     RAMB18E1:CLKARDCLK->DOADO7    3   1.846   0.389  vgaram/Mram_my_ram (ram_data<7>)
+     LUT3:I1->O            2   0.097   0.299  vgatext/Mmux_rom_add12331 (vgatext/Mmux_rom_add1233)
+     LUT6:I5->O            1   0.097   0.295  vgatext/Mmux_rom_add245 (vgatext/Mmux_rom_add245)
+     LUT6:I5->O            1   0.097   0.000  vgatext/Mmux_rom_add246_G (N1589)
+     MUXF7:I1->O          20   0.279   0.383  vgatext/Mmux_rom_add246 (vgatext/Mmux_rom_add24)
+     LUT5:I4->O           39   0.097   0.791  vgatext/Mmux_rom_add27 (rom_add<0>)
+     LUT5:I0->O            3   0.097   0.703  pixel/Mmux_line[3]_X_14_o_wide_mux_12_OUT<2>2131 (pixel/Mmux_line[3]_X_14_o_wide_mux_12_OUT<2>213)
+     LUT6:I0->O            1   0.097   0.000  vgatext/green<1>47_G (N1581)
+     MUXF7:I1->O           1   0.279   0.683  vgatext/green<1>47 (vgatext/green<1>46)
+     LUT6:I1->O            1   0.097   0.379  vgatext/green<1>50 (vgatext/green<1>49)
+     LUT6:I4->O            1   0.097   0.379  vgatext/green<1>62 (vgatext/green<1>61)
+     LUT6:I4->O            1   0.097   0.379  vgatext/green<1>94_SW0 (N1578)
+     LUT6:I4->O            4   0.097   0.293  vgatext/green<1>94 (vgaGreen_0_OBUF)
      OBUF:I->O                 0.000          vgaGreen_3_OBUF (vgaGreen<3>)
     ----------------------------------------
-    Total                      4.352ns (1.123ns logic, 3.229ns route)
-                                       (25.8% logic, 74.2% route)
+    Total                      8.349ns (3.374ns logic, 4.975ns route)
+                                       (40.4% logic, 59.6% route)
 
 =========================================================================
 
@@ -907,7 +885,7 @@ Clock to Setup on destination clock cgenerator/clk25
                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock    |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------+---------+---------+---------+---------+
-cgenerator/clk25|    2.462|         |         |         |
+cgenerator/clk25|    2.865|         |         |         |
 ----------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk
@@ -915,21 +893,21 @@ Clock to Setup on destination clock clk
                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock    |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------+---------+---------+---------+---------+
-cgenerator/clk25|    9.834|         |         |         |
-clk             |    2.507|         |         |         |
+cgenerator/clk25|   11.515|         |         |         |
+clk             |    3.983|         |         |         |
 ----------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 19.00 secs
-Total CPU time to Xst completion: 18.64 secs
+Total REAL time to Xst completion: 29.00 secs
+Total CPU time to Xst completion: 28.21 secs
  
 --> 
 
-Total memory usage is 439132 kilobytes
+Total memory usage is 461916 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
-Number of infos    :   30 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :   21 (   0 filtered)
 
