@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="NgdBuild" timeStamp="Fri Apr 25 22:37:15 2014">
+  <application stringID="NgdBuild" timeStamp="Sat Apr 26 15:46:29 2014">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -45,7 +45,7 @@
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="Intel(R) Core(TM) i7 CPU       M 620  @ 2.67GHz"/>
-          <item stringID="speed" value="2659 MHz"/>
+          <item stringID="speed" value="2660 MHz"/>
         </row>
       </table>
     </section>
@@ -76,13 +76,13 @@
         <item dataType="int" stringID="NGDBUILD_NUM_GND" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_INV" value="6"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT1" value="36"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="20"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="17"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT3" value="19"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT4" value="44"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT5" value="41"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT6" value="114"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT4" value="40"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT5" value="45"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT6" value="116"/>
         <item dataType="int" stringID="NGDBUILD_NUM_MUXCY" value="43"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_MUXF7" value="5"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_MUXF7" value="7"/>
         <item dataType="int" stringID="NGDBUILD_NUM_OBUF" value="15"/>
         <item dataType="int" stringID="NGDBUILD_NUM_RAM128X1D" value="8"/>
         <item dataType="int" stringID="NGDBUILD_NUM_RAMB18E1" value="4"/>
@@ -100,13 +100,13 @@
         <item dataType="int" stringID="NGDBUILD_NUM_IBUFG" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_INV" value="6"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT1" value="36"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="20"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="17"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT3" value="19"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT4" value="44"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT5" value="41"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT6" value="114"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT4" value="40"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT5" value="45"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT6" value="116"/>
         <item dataType="int" stringID="NGDBUILD_NUM_MUXCY" value="43"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_MUXF7" value="5"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_MUXF7" value="7"/>
         <item dataType="int" stringID="NGDBUILD_NUM_OBUF" value="15"/>
         <item dataType="int" stringID="NGDBUILD_NUM_RAMB18E1" value="4"/>
         <item dataType="int" stringID="NGDBUILD_NUM_TS_TIMESPEC" value="1"/>

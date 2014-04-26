@@ -1,38 +1,11 @@
-----------------------------------------------------------------------------------
--- Company: 
--- engineer: 
--- 
--- Create Date:    12:07:43 04/13/2014 
--- Design Name: 
--- Module Name:    TopLevel - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+use work.pack.all;
 
 entity TopLevel is
-	generic(	data_width:	positive := 10);																--Data Size
 	port(		clk			:in std_logic;																	--Clock
 				vgaRed		:out std_logic_vector(3 downto 0);
 				vgaBlue		:out std_logic_vector(3 downto 0);
@@ -44,30 +17,30 @@ end TopLevel;
 
 architecture Behavioral of TopLevel is
 
-	signal random_num		:std_logic_vector(data_width-1 downto 0) := (others => '0');		--RNG Output
+	signal random_num		:std_logic_vector(data_size-1 downto 0) := (others => '0');		--RNG Output
 	signal we				:std_logic := '1';																--RAM Write enable
 	signal en				:std_logic := '0';																--Decoder enable
 	signal over				:std_logic := '0';																--Signals RAM populated with 216 values
-	signal radd				:std_logic_vector(data_width-1 downto 0) := (others => '0');		--Read Addr
+	signal radd				:std_logic_vector(data_size-1 downto 0) := (others => '0');		--Read Addr
 	signal ram_out			:std_logic;																			--RAM output
---	signal data				:std_logic_vector(2**dec_size-1 downto 0);								--Decoder output
 	signal clk25			:std_logic;																			--25MHz Clock
-	signal wadd0			:std_logic_vector(9 downto 0);
-	signal wadd1			:std_logic_vector(9 downto 0);
-	signal wadd2			:std_logic_vector(9 downto 0);
-	signal wadd3			:std_logic_vector(9 downto 0);
-	signal dout0			:std_logic_vector(4 downto 0);
-	signal dout1			:std_logic_vector(4 downto 0);
-	signal dout2			:std_logic_vector(4 downto 0);
-	signal dout3			:std_logic_vector(4 downto 0);
+	signal wadd0			:std_logic_vector(vga_wadd_size-1 downto 0);
+	signal wadd1			:std_logic_vector(vga_wadd_size-1 downto 0);
+	signal wadd2			:std_logic_vector(vga_wadd_size-1 downto 0);
+	signal wadd3			:std_logic_vector(vga_wadd_size-1 downto 0);
+	signal dout0			:std_logic_vector(vga_din_size-1 downto 0);
+	signal dout1			:std_logic_vector(vga_din_size-1 downto 0);
+	signal dout2			:std_logic_vector(vga_din_size-1 downto 0);
+	signal dout3			:std_logic_vector(vga_din_size-1 downto 0);
 	signal hs, vs, blank	:std_logic;
-	signal hcount, vcount:std_logic_vector(10 downto 0);
-	signal r, g, b			:std_logic_vector(3 downto 0);
-	signal ram_add			:std_logic_vector(11 downto 0);
-	signal ram_data		:std_logic_vector(4 downto 0);
-	signal rom_add			:std_logic_vector(4 downto 0);--ROMSIZE
-	signal rom_line		:std_logic_vector(3 downto 0);
-	signal rom_column		:std_logic_vector(2 downto 0);
+	signal hcount			:std_logic_vector(hcount_size-1 downto 0);
+	signal vcount			:std_logic_vector(vcount_size-1 downto 0);
+	signal r, g, b			:std_logic_vector(rgb_size-1 downto 0);
+	signal ram_add			:std_logic_vector(vga_radd_size-1 downto 0);
+	signal ram_data		:std_logic_vector(vga_dout_size-1 downto 0);
+	signal rom_add			:std_logic_vector(rom_radd_size-1 downto 0);--ROMSIZE
+	signal rom_line		:std_logic_vector(rom_line_size-1 downto 0);
+	signal rom_column		:std_logic_vector(rom_column_size-1 downto 0);
 	signal rom_data		:std_logic;
 	signal vgaen			:std_logic := '0';
 	signal done				:std_logic := '0';
@@ -127,7 +100,7 @@ begin
 	begin
 		if rising_edge(clk) then
 			if over = '1' then
-				if conv_integer(radd) < (2**data_width) then						--Max nº of blocks
+				if conv_integer(radd) < (2**data_size) then						--Max nº of blocks
 					radd <= radd + 1;
 				end if;
 				if radd = "1111111111" then

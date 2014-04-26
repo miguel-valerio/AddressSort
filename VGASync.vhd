@@ -1,35 +1,9 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    15:50:34 04/15/2014 
--- Design Name: 
--- Module Name:    VGASync - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+use work.pack.all;
 
 entity VGASync is
 	port(		reset:	in std_logic;
@@ -42,21 +16,9 @@ entity VGASync is
 end VGASync;
 
 architecture Behavioral of VGASync is
-
-	constant HBP	:integer := 48;				--Horizontal Back Porch End
-	constant HAV	:integer := 688;				--Horizontal Active Video End
-	constant HFP	:integer := 704;				--Horizontal Front Porch End
-	constant HMAX	:integer := 800;				--Horizontal Single Pulse End
 	
-	constant VBP	:integer := 33;				--Vertical Back Porch End
-	constant VAV	:integer := 513;				--Vertical Active Video End
-	constant VFP	:integer := 523;				--Vertical Front Porch End
-	constant VMAX	:integer := 525;				--Vertical Single Pulse End
-	
-	constant SPP	:std_logic := '0';			--Synch Pulse Polarity (Negative)
-	
-	signal hcounter:std_logic_vector(10 downto 0);	--Horizontal Counter
-	signal vcounter:std_logic_vector(10 downto 0);	--Vertical Counter
+	signal hcounter:std_logic_vector(hcount_size-1 downto 0);	--Horizontal Counter
+	signal vcounter:std_logic_vector(vcount_size-1 downto 0);	--Vertical Counter
 	
 	signal videoEN	:std_logic;
 

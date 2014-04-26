@@ -1,3 +1,4 @@
+vhdl work "pack.vhd"
 vhdl work "OnePortRAM.vhd"
 vhdl work "VGAText.vhd"
 vhdl work "VGASync.vhd"
